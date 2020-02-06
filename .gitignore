@@ -1,0 +1,11 @@
+# ignore dependencies
+node_modules/
+
+# ignore OS generated files
+**/.DS_Store
+
+# ignore builds
+dist/
+
+# ignore jest files
+.jest-*

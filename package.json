@@ -1,7 +1,50 @@
 {
-  "name": "root",
+  "name": "@tambium/tambium-ui",
+  "author": "Tambium",
+  "license": "Apache-2.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
+    "lint:fix": "yarn lint:ts --fix",
+    "lint:ts": "eslint 'packages/**/*.ts{,x}'",
+    "storybook": "start-storybook -p 5555",
+    "release": "lerna publish"
+  },
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@emotion/core": "^10.0.27",
+    "@emotion/css": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "@storybook/addon-docs": "^5.3.12",
+    "@storybook/addon-info": "^5.3.12",
+    "@storybook/preset-typescript": "^1.2.0",
+    "@storybook/react": "^5.3.12",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.27",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "fork-ts-checker-webpack-plugin": "^4.0.3",
+    "lerna": "^3.20.2",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.12.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5"
   }
 }
