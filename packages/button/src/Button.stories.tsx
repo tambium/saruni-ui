@@ -7,4 +7,4 @@ export default {
   title: 'Tambium UI|Button',
 };
 
-export const primary = () => <Button>{'Button'}</Button>;
+export const primary = (): React.ReactNode => <Button>{'Button'}</Button>;
