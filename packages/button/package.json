@@ -2,7 +2,8 @@
   "name": "@tambium/button",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "module": "src/index.js",
+  "types": "dist/types.js",
+  "module": "src/index.ts",
   "author": "Tambium",
   "license": "Apache-2.0",
   "dependencies": {
