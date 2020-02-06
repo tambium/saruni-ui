@@ -11,7 +11,8 @@
     "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
-    "storybook": "start-storybook -p 5555"
+    "storybook": "start-storybook -p 5555",
+    "release": "lerna publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
