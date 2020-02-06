@@ -7,4 +7,5 @@ interface Props {
   children?: React.ReactNode;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ButtonProps extends Props {}
