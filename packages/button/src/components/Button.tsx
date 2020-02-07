@@ -4,7 +4,7 @@ import { ButtonProps } from './../types';
 
 const StyledButton = styled.button<ButtonProps>`
   background: navy;
-  color: #fff;
+  color: #ffffff;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
