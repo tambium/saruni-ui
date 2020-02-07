@@ -6,6 +6,9 @@
   "module": "src/index.ts",
   "author": "Tambium",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@emotion/styled": "latest",
     "react": "latest",
@@ -15,5 +18,6 @@
     "@emotion/styled": "^10.0.27",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
-  }
+  },
+  "gitHead": "27236b622bd35a7be550344b553ea6a55205a40a"
 }
