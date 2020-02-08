@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ButtonProps } from './../types';
 
 const StyledButton = styled.button<ButtonProps>`
-  background: navy;
+  background: black;
   color: #ffffff;
   border-radius: 4px;
   cursor: pointer;
