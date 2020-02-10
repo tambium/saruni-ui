@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Theme, { GlobalThemeTokens } from '../src';
+import Theme, { GlobalThemeTokens, Reset } from '../src';
 
 export default {
   title: 'Tambium UI|Theme',
@@ -16,4 +16,8 @@ export const mode = () => {
       )}
     </Theme.Consumer>
   );
+};
+
+export const reset = () => {
+  return <Reset>This is the default reset.</Reset>;
 };
