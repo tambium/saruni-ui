@@ -1,6 +1,7 @@
+import * as colors from './colors';
 import * as math from './utils/math';
 
-export { math };
+export { colors, math };
 
 export * from './components/Reset';
 export { default } from './components/Theme';

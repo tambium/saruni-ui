@@ -76,6 +76,8 @@ export function Reset(props: ResetProps) {
                     font-weight: 400;
                     line-height: 1.42857142857;
                     -ms-overflow-style: -ms-autohiding-scrollbar;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
                     text-decoration-skip-ink: auto;
                   }
 
