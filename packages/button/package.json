@@ -1,8 +1,8 @@
 {
   "name": "@tambium-ui/button",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
-  "types": "dist/types.js",
+  "types": "dist/index.d.ts",
   "module": "src/index.ts",
   "author": "Tambium",
   "license": "Apache-2.0",
@@ -13,7 +13,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@tambium-ui/theme": "^1.0.3"
+    "@tambium-ui/theme": "^1.0.5"
   },
   "devDependencies": {
     "react-dom": "^16.12.0"

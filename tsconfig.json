@@ -1,7 +1,9 @@
 {
+  "extends": "./tsconfig.entry-points.json",
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": ".",
+    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
