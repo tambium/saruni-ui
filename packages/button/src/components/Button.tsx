@@ -72,7 +72,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
             state={mapAttributesToState(attributes)}
             {...props}
           >
-            {({ buttonStyles, spinnerStyles }) => (
+            {({ buttonStyles }) => (
               <StyledButton
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}

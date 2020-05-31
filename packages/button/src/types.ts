@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type ButtonAppearances = 'default' | 'link' | 'primary' | 'subtle-link';
+export type ButtonAppearances = 'default' | 'link' | 'primary' | 'subtle-link';
 
 type Spacing = 'default' | 'none' | 'small' | 'large';
 
@@ -36,8 +36,8 @@ export interface ButtonProps extends Props {}
 export type ThemeMode = 'dark' | 'light';
 
 export type ThemeTokens = {
-  buttonStyles: Object;
-  spinnerStyles: Object;
+  buttonStyles: Record<string, any>;
+  spinnerStyles: Record<string, any>;
 };
 
 export interface ThemeProps extends Partial<ButtonProps> {
