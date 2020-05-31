@@ -3,6 +3,9 @@
   "exclude": ["./stories"],
   "include": ["./src"],
   "compilerOptions": {
-    "outDir": "./dist"
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   }
 }

@@ -9,3 +9,6 @@ dist/
 
 # ignore jest files
 .jest-*
+
+# ts compilation cache
+*.tsbuildinfo
