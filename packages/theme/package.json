@@ -1,6 +1,6 @@
 {
-  "name": "@tambium-ui/theme",
-  "version": "1.0.5",
+  "name": "@saruni-ui/theme",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

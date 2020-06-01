@@ -7,8 +7,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@tambium-ui/button": "*",
-    "@tambium-ui/theme": "*"
+    "@saruni-ui/button": "*",
+    "@saruni-ui/theme": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

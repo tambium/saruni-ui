@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@tambium-ui/*": ["./packages/*/src"]
+      "@saruni-ui/*": ["./packages/*/src"]
     }
   }
 }

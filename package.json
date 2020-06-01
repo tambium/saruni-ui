@@ -1,5 +1,5 @@
 {
-  "name": "@tambium/tambium-ui",
+  "name": "@tambium/saruni-ui",
   "author": "Tambium",
   "license": "Apache-2.0",
   "private": true,
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "build": "lerna run --scope @tambium-ui/* build",
+    "build": "lerna run --scope @saruni-ui/* build",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "release": "lerna publish from-package",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from '@tambium-ui/button';
+import { Button } from '@saruni-ui/button';
 
 export default {
   title: 'Button',

@@ -1,4 +1,4 @@
-import { colors, createTheme } from '@tambium-ui/theme';
+import { colors, createTheme } from '@saruni-ui/theme';
 import { getButtonStyles } from './components/getStyles';
 import { ThemeFallbacks, ThemeMode, ThemeProps, ThemeTokens } from './types';
 

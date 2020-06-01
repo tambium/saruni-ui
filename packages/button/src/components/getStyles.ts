@@ -1,4 +1,4 @@
-import { borderRadius, fontSize, gridSize } from '@tambium-ui/theme';
+import { borderRadius, fontSize, gridSize } from '@saruni-ui/theme';
 import { ThemeProps } from '../types';
 import { applyPropertyStyle, baseTheme } from '../theme';
 

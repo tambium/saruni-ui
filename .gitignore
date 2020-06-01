@@ -1,14 +1,17 @@
-# ignore dependencies
+# deps
 node_modules/
 
-# ignore OS generated files
+# OS
 **/.DS_Store
 
-# ignore builds
+# builds
 dist/
 
-# ignore jest files
+# jest
 .jest-*
 
 # ts compilation cache
 *.tsbuildinfo
+
+# yarn
+yarn-error.log
