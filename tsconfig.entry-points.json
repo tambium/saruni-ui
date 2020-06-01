@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@tambium-ui/button": ["./packages/button/src"],
-      "@tambium-ui/theme": ["./packages/theme/src"]
+      "@tambium-ui/*": ["./packages/*/src"]
     }
   }
 }

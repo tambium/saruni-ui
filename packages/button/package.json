@@ -3,7 +3,12 @@
   "version": "1.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "module": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rm tsconfig.tsbuildinfo ||: && tsc --b"
+  },
   "author": "Tambium",
   "license": "Apache-2.0",
   "publishConfig": {

@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
+    "build": "yarn workspaces run build",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "storybook": "start-storybook -p 5555",

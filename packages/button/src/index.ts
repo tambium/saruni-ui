@@ -1,4 +1,4 @@
 import { Button } from './components/Button';
-import { ButtonProps } from './types';
+import { ButtonAppearances, ButtonProps } from './types';
 
-export { Button, ButtonProps };
+export { Button, ButtonAppearances, ButtonProps };
