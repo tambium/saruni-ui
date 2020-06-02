@@ -91,3 +91,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     </Theme.Provider>
   );
 };
+
+Button.defaultProps = {
+  appearance: 'default',
+};
