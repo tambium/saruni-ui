@@ -12,6 +12,7 @@ interface ResetProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface ResetThemeTokens {
   backgroundColor: string;
+  customCss?: string;
 }
 
 export const ResetTheme = createTheme<ResetThemeTokens, ResetThemeProps>(
@@ -20,7 +21,7 @@ export const ResetTheme = createTheme<ResetThemeTokens, ResetThemeProps>(
   }),
 );
 
-export function Reset(props: ResetProps) {
+export const Reset = (props: ResetProps) => {
   return (
     <ResetTheme.Provider value={props.theme}>
       <ResetTheme.Consumer>
@@ -122,6 +123,8 @@ export function Reset(props: ResetProps) {
                       font-size: inherit;
                     }
                   }
+
+                  ${tokens?.customCss}
                 `}
               />
               {props.children}
@@ -131,4 +134,4 @@ export function Reset(props: ResetProps) {
       </ResetTheme.Consumer>
     </ResetTheme.Provider>
   );
-}
+};
