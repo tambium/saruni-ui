@@ -13,7 +13,7 @@
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "release": "yarn build && lerna publish from-package",
     "start:stories": "lerna run storybook --stream --scope=stories",
-    "version:patch": "lerna version patch"
+    "version:patch": "lerna version patch --no-private"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
