@@ -12,6 +12,8 @@ interface ResetProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface ResetThemeTokens {
   backgroundColor: string;
+  fontFamily?: string;
+  fontSize?: string;
   customCss?: string;
 }
 
@@ -71,8 +73,8 @@ export const Reset = (props: ResetProps) => {
 
                   body {
                     background-color: ${tokens.backgroundColor};
-                    font-family: ${fontFamily()};
-                    font-size: ${fontSize()}px;
+                    font-family: ${tokens.fontFamily || fontFamily()};
+                    font-size: ${tokens.fontSize || fontSize()}px;
                     font-style: normal;
                     font-weight: 400;
                     line-height: 1.42857142857;
