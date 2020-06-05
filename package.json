@@ -11,8 +11,9 @@
     "build": "lerna run --scope @saruni-ui/* build",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
-    "release": "lerna publish from-package",
-    "start:stories": "lerna run storybook --stream --scope=stories"
+    "release": "yarn build && lerna publish from-package",
+    "start:stories": "lerna run storybook --stream --scope=stories",
+    "version:patch": "lerna version patch"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
