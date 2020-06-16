@@ -15,7 +15,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es5",
-    "types": []
+    "types": ["@emotion/core"]
   },
   "exclude": ["node_modules", "build"],
   "include": ["packages"]

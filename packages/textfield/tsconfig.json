@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "exclude": ["./stories"],
+  "include": ["./src"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "references": [
+    {
+      "path": "../form"
+    }
+  ]
+}
