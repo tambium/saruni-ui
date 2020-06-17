@@ -13,6 +13,7 @@ export const TextField = React.forwardRef<
   const ownRef = React.useRef();
 
   const { validation, ...rest } = React.useContext(FieldContext);
+
   const { register } = useFormContext() || {};
 
   const { ...textFieldProps } = props;

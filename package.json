@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
+    "watch": "lerna exec --scope @saruni-ui/* -- tsc -watch",
     "build": "lerna run --scope @saruni-ui/* build",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
@@ -20,6 +21,7 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.27",
     "@emotion/css": "^10.0.27",
     "@emotion/styled": "^10.0.27",
@@ -27,7 +29,6 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
-    "babel-plugin-emotion": "^10.0.27",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
@@ -38,5 +39,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "typescript": "^3.7.5"
-  }
+  },
+  "dependencies": {}
 }
