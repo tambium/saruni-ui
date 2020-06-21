@@ -7,7 +7,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && rm tsconfig.tsbuildinfo ||: && tsc --b"
+    "build": "yarn delete:build && yarn check:tsc && babel src --out-dir dist --extensions '.ts,.tsx'",
+    "check:tsc": "tsc",
+    "delete:build": "rm -rf dist"
   },
   "author": "Tambium",
   "license": "Apache-2.0",

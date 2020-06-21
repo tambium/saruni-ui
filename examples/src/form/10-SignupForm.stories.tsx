@@ -11,10 +11,13 @@ export const SignupForm = () => {
   });
 
   return (
-    <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
-      <Field name="firstName" label="First name" placeholder="First name">
-        <TextField />
-      </Field>
-    </Form>
+    <div>
+      <div css={{ backgroundColor: 'pink' }}>Hello</div>
+      <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
+        <Field name="firstName" label="First name" placeholder="First name">
+          <TextField />
+        </Field>
+      </Form>
+    </div>
   );
 };
