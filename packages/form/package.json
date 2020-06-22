@@ -1,19 +1,21 @@
 {
   "name": "@saruni-ui/form",
   "version": "0.0.1",
+  "author": "Tambium",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "rm -rf dist && rm tsconfig.tsbuildinfo ||: && tsc --b"
-  },
-  "author": "Tambium",
-  "license": "Apache-2.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "check:tsc": "tsc",
+    "delete:build": "rm -rf dist && rm -f -- tsconfig.tsbuildinfo"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",

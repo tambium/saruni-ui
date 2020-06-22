@@ -35,7 +35,7 @@ export const Field: React.FC<FieldProps> = (props) => {
 
   return (
     <FieldContext.Provider value={{ name, ...rest }}>
-      {label && <label css={{ backgroundColor: 'blue' }}>{label}</label>}
+      {label && <label>{label}</label>}
       {children}
       {isInvalid && invalidMessage && <div>{invalidMessage}</div>}
     </FieldContext.Provider>
