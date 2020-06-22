@@ -9,12 +9,16 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "watch": "lerna exec --scope @saruni-ui/* -- tsc -watch",
-    "build": "lerna run --scope @saruni-ui/* build",
+    "build": "concurrently yarn:build:*",
+    "build:js": "lerna exec --parallel -- babel --out-dir ./dist --extensions \".js,.jsx,.ts,.tsx\" ./src",
+    "build:dts": "tsc -b",
+    "clean": "concurrently yarn:clean:*",
+    "clean:lerna": "lerna clean --yes",
+    "clean:lib": "rm -rf packages/*/dist",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "release": "yarn build && lerna publish from-package",
-    "start:stories": "lerna run storybook --stream --scope=stories",
+    "start:stories": "lerna run start --stream --scope=examples",
     "version:patch": "lerna version patch --no-private"
   },
   "devDependencies": {
@@ -31,6 +35,7 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
+    "concurrently": "^5.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
@@ -40,6 +45,7 @@
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "rimraf": "^3.0.2",
     "typescript": "^3.7.5"
   },
   "dependencies": {}
