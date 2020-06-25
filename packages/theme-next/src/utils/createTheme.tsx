@@ -1,15 +1,16 @@
 import React from 'react';
 
-export function createTheme<T, U>(themeDefault: T) {
-  const ThemeContext = React.createContext<T>(themeDefault);
+export function createTheme<ThemeTokens, ThemeProps>(
+  defaultGetTokens: (props: ThemeProps) => ThemeTokens,
+) {
+  const ThemeContext = React.createContext(defaultGetTokens);
 
   const ThemeProvider = (props: { children: React.ReactNode }) => {
-    return <ThemeContext.Provider value={themeDefault} {...props} />;
+    return <ThemeContext.Provider value={defaultGetTokens} {...props} />;
   };
 
-  function useTheme(themeProps: U) {
+  function useTheme(themeProps?: ThemeProps) {
     const theme = React.useContext(ThemeContext);
-    // @ts-ignore
     return theme(themeProps);
   }
 

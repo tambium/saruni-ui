@@ -1,6 +1,10 @@
 import React from 'react';
+import { ThemeTokens } from '../theme';
+import { CSSObject } from '@emotion/core';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  innerRef: (ref: HTMLInputElement | null) => void;
+
   isDisabled: boolean;
   isReadOnly: boolean;
   isRequired: boolean;
@@ -11,7 +15,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   onMouseEnter: React.MouseEventHandler<HTMLElement>;
   onMouseLeave: React.MouseEventHandler<HTMLElement>;
 
-  innerRef: (ref: HTMLInputElement | null) => void;
+  theme: ThemeTokens;
 }
 
 export const Input: React.FC<Props> = ({
@@ -21,6 +25,7 @@ export const Input: React.FC<Props> = ({
   isRequired,
   onBlur,
   onFocus,
+  theme,
   ...externalInputProps
 }) => {
   const localInputProps: React.InputHTMLAttributes<HTMLInputElement> = {
@@ -37,18 +42,20 @@ export const Input: React.FC<Props> = ({
   };
 
   return (
-    <input
-      css={{
-        backgroundColor: 'transparent',
-        borderRadius: 4,
-        borderWidth: 0,
-        flex: '1 1 auto',
-        padding: '8px 4px',
-        outline: 0,
-        width: '100%',
-      }}
-      ref={innerRef}
-      {...inputProps}
-    />
+    <div css={theme.container as CSSObject}>
+      <input
+        css={{
+          backgroundColor: 'transparent',
+          borderRadius: 4,
+          borderWidth: 0,
+          flex: '1 1 auto',
+          padding: '8px 4px',
+          outline: 0,
+          width: '100%',
+        }}
+        ref={innerRef}
+        {...inputProps}
+      />
+    </div>
   );
 };

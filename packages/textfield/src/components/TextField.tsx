@@ -7,30 +7,6 @@ import { Theme } from '../theme';
 import { Input } from './Input';
 import { InternalProps, PublicProps } from '../types';
 
-const getBoxShadow = ({ hasBase = true, isFocused }) => {
-  if (isFocused)
-    return `rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(58, 151, 212, 0.36) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px`;
-  if (hasBase)
-    return `rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px`;
-  return undefined;
-};
-
-const Pressable = ({ children, isFocused }) => {
-  return (
-    <div
-      css={{
-        backgroundColor: '#fff',
-        borderRadius: 4,
-        boxShadow: getBoxShadow({ isFocused }),
-        cursor: 'pointer',
-        transition: 'box-shadow 0.2s ease',
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
 const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
   const [state, setState] = React.useState({
     isFocused: false,
@@ -99,23 +75,22 @@ const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
   const { isFocused, isHovered } = state;
 
   const { mode } = useGlobalTheme();
-  const { container } = Theme.useTheme(mode);
+  const tokens = Theme.useTheme({ isFocused });
 
   return (
-    <Pressable isFocused={isFocused}>
-      <Input
-        {...otherProps}
-        isDisabled={isDisabled!}
-        isReadOnly={isReadOnly!}
-        isRequired={isRequired!}
-        innerRef={inputRef}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        onMouseDown={handleOnMouseDown}
-      />
-    </Pressable>
+    <Input
+      {...otherProps}
+      isDisabled={isDisabled!}
+      isReadOnly={isReadOnly!}
+      isRequired={isRequired!}
+      innerRef={inputRef}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      onMouseDown={handleOnMouseDown}
+      theme={tokens}
+    />
   );
 };
 

@@ -1,7 +1,20 @@
 import { createTheme } from '../utils';
 import { DEFAULT_THEME_MODE } from '../constants';
 
-const GlobalTheme = createTheme({ mode: DEFAULT_THEME_MODE });
+type ThemeModes = 'light' | 'dark';
+interface Theme {
+  mode: ThemeModes;
+}
+
+type GlobalThemeTokens = Theme;
+
+interface GlobalThemeProps {
+  mode: ThemeModes;
+}
+
+const GlobalTheme = createTheme<GlobalThemeTokens, GlobalThemeProps>(() => ({
+  mode: DEFAULT_THEME_MODE,
+}));
 
 const { ThemeProvider, useTheme } = GlobalTheme;
 
