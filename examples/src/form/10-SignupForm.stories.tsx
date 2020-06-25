@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { string, object } from 'yup';
 import { TextField } from '@saruni-ui/textfield';
 import { Field, Form } from '@saruni-ui/form';
+import { GlobalThemeProvider } from '@saruni-ui/theme-next';
 
 export default { title: 'Form' };
 
@@ -24,12 +25,14 @@ export const SignupForm = () => {
   });
 
   return (
-    <div css={{ backgroundColor: '#F8FAFC' }}>
-      <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
-        <Field name="firstName" label="First name" placeholder="First name">
-          <TextField />
-        </Field>
-      </Form>
-    </div>
+    <GlobalThemeProvider>
+      <div css={{ backgroundColor: '#F8FAFC' }}>
+        <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
+          <Field name="firstName" label="First name" placeholder="First name">
+            <TextField />
+          </Field>
+        </Form>
+      </div>
+    </GlobalThemeProvider>
   );
 };
