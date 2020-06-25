@@ -15,6 +15,7 @@
     "clean": "concurrently yarn:clean:*",
     "clean:lerna": "lerna clean --yes",
     "clean:lib": "rm -rf packages/*/dist",
+    "dev": "concurrently \"yarn build:js -- --watch\" \"yarn build:dts -- --watch\"",
     "lint:fix": "yarn lint:ts --fix",
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "release": "yarn build && lerna publish from-package",

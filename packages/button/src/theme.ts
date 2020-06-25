@@ -99,7 +99,10 @@ export function applyPropertyStyle(
   return stateStyles[mode] || appearanceStyles.default[mode];
 }
 
-export const Theme = createTheme<ThemeTokens, ThemeProps>((themeProps) => ({
-  buttonStyles: getButtonStyles(themeProps),
-  spinnerStyles: {},
-}));
+export const Theme = createTheme<ThemeTokens, ThemeProps>((themeProps) => {
+  console.log('themeProps', themeProps);
+  return {
+    buttonStyles: getButtonStyles(themeProps),
+    spinnerStyles: {},
+  };
+});

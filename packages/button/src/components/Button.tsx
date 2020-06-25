@@ -7,12 +7,19 @@ import { ButtonProps, ThemeMode, ThemeProps, ThemeTokens } from './../types';
 import { mapAttributesToState } from './utils';
 
 export const Button: React.FC<ButtonProps> = (props) => {
+  console.log(props.theme);
+
   const {
     children,
     component: CustomComponent,
     href,
-    theme = (current: (props: ThemeProps) => ThemeTokens, props: ThemeProps) =>
-      current(props),
+    theme = (
+      current: (props: ThemeProps) => ThemeTokens,
+      props: ThemeProps,
+    ) => {
+      console.log('current', current, props);
+      return current(props);
+    },
     isSelected,
     isDisabled,
   } = props;
@@ -63,30 +70,38 @@ export const Button: React.FC<ButtonProps> = (props) => {
     return styles;
   };
 
+  console.log('theme', theme);
+
   return (
     <Theme.Provider value={theme}>
       <GlobalTheme.Consumer>
-        {({ mode }: { mode: ThemeMode }) => (
-          <Theme.Consumer
-            mode={mode}
-            state={mapAttributesToState(attributes)}
-            {...props}
-          >
-            {({ buttonStyles }) => (
-              <StyledButton
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                onMouseDown={onMouseDown}
-                onMouseUp={onMouseUp}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                css={specifiers(buttonStyles)}
-              >
-                {children && <React.Fragment>{children}</React.Fragment>}
-              </StyledButton>
-            )}
-          </Theme.Consumer>
-        )}
+        {({ mode }: { mode: ThemeMode }) => {
+          console.log('mode', mode);
+          return (
+            <Theme.Consumer
+              mode={mode}
+              state={mapAttributesToState(attributes)}
+              {...props}
+            >
+              {({ buttonStyles }) => {
+                console.log('butonStyles', buttonStyles);
+                return (
+                  <StyledButton
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    onMouseDown={onMouseDown}
+                    onMouseUp={onMouseUp}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    css={specifiers(buttonStyles)}
+                  >
+                    {children && <React.Fragment>{children}</React.Fragment>}
+                  </StyledButton>
+                );
+              }}
+            </Theme.Consumer>
+          );
+        }}
       </GlobalTheme.Consumer>
     </Theme.Provider>
   );

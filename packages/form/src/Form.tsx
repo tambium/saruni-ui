@@ -1,13 +1,12 @@
 import React from 'react';
-import { useForm, FormContext, FormContextValues } from 'react-hook-form';
+import { FormContext, FormContextValues } from 'react-hook-form';
 
 interface FormProps {
-  formMethods?: FormContextValues<Record<string, any>>;
+  formMethods: FormContextValues<Record<string, any>>;
   onSubmit: <T>(
     data: T,
     e: React.BaseSyntheticEvent | undefined,
   ) => void | Promise<void>;
-  validation?: any;
 }
 
 interface FormErrorProps {
@@ -35,10 +34,7 @@ export const Form: React.FC<FormProps> = (props) => {
     undefined,
   );
 
-  const { formMethods: propFormMethods, onSubmit, ...formProps } = props;
-  const useFormMethods = useForm(props.validation);
-
-  const formMethods = propFormMethods || useFormMethods;
+  const { formMethods, onSubmit, ...formProps } = props;
 
   return (
     <form
