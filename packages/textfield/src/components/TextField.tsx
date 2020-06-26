@@ -3,12 +3,11 @@ import { useFormContext } from 'react-hook-form';
 import { FieldContext } from '@saruni-ui/form';
 import { useGlobalTheme } from '@saruni-ui/theme-next';
 
-// import { Theme } from '../theme';
+import { Theme } from '../theme';
 import { Input } from './Input';
 import { InternalProps, PublicProps } from '../types';
 
-// export const ThemedTextField: React.FC<InternalProps> = (props) => {
-export const TextField: React.FC<InternalProps> = (props) => {
+export const ThemedTextField: React.FC<InternalProps> = (props) => {
   const [state, setState] = React.useState({
     isFocused: false,
     isHovered: false,
@@ -76,8 +75,10 @@ export const TextField: React.FC<InternalProps> = (props) => {
 
   const { isFocused, isHovered } = state;
 
-  // const { mode } = useGlobalTheme({ mode: 'light' });
-  // const tokens = Theme.useTheme({ isFocused, mode });
+  const {
+    tokens: { mode },
+  } = useGlobalTheme({ mode: 'light' });
+  const { tokens } = Theme.useTheme({ isFocused, mode });
 
   return (
     <Input
@@ -91,20 +92,17 @@ export const TextField: React.FC<InternalProps> = (props) => {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
       onMouseDown={handleOnMouseDown}
-      // theme={tokens}
-      theme={{ container: {} }}
+      theme={tokens}
     />
   );
 };
 
-// export const TextField = React.forwardRef<HTMLInputElement, PublicProps>(
-//   function WrappedTextField(props, ref) {
-//     return (
-//       // <Theme.Provider>
-//       <ThemedTextField {...props} forwardedRef={ref} />
-//       // </Theme.Provider>
-//     );
-//   },
-// );
-
-// export const TextField = () => <button>Hello, world</button>;
+export const TextField = React.forwardRef<HTMLInputElement, PublicProps>(
+  function WrappedTextField(props, ref) {
+    return (
+      <Theme.Provider theme={props.theme}>
+        <ThemedTextField {...props} forwardedRef={ref} />
+      </Theme.Provider>
+    );
+  },
+);

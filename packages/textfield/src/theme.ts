@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeModes } from '@saruni-ui/theme-next';
+import { createTheme, ThemeModes } from '@saruni-ui/theme-next';
 
 import * as componentTokens from './component-tokens';
 
@@ -28,14 +28,14 @@ export interface ThemeTokens {
 
 const boxShadow = componentTokens.defaultBoxShadowColor;
 
-// export const Theme = createTheme<ThemeTokens, ThemeProps>(({ isFocused }) => {
-//   return {
-//     container: {
-//       backgroundColor: '#fff',
-//       borderRadius: 4,
-//       boxShadow: getContainerBoxShadow({ isFocused }),
-//       cursor: 'pointer',
-//       transition: 'box-shadow 0.2s ease',
-//     },
-//   };
-// });
+export const Theme = createTheme<ThemeTokens, ThemeProps>(({ isFocused }) => {
+  return {
+    container: {
+      backgroundColor: '#fff',
+      borderRadius: 4,
+      boxShadow: getContainerBoxShadow({ isFocused }),
+      cursor: 'pointer',
+      transition: 'box-shadow 0.2s ease',
+    },
+  };
+});
