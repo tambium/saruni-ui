@@ -2,9 +2,9 @@
   "extends": "./tsconfig.entry-points.json",
   "files": [],
   "references": [
-    { "path": "./packages/button" },
     { "path": "./packages/form" },
     { "path": "./packages/textfield" },
-    { "path": "./packages/theme" }
+    { "path": "./packages/theme" },
+    { "path": "./packages/theme-next" }
   ]
 }

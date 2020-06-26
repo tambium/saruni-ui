@@ -3,11 +3,12 @@ import { useFormContext } from 'react-hook-form';
 import { FieldContext } from '@saruni-ui/form';
 import { useGlobalTheme } from '@saruni-ui/theme-next';
 
-import { Theme } from '../theme';
+// import { Theme } from '../theme';
 import { Input } from './Input';
 import { InternalProps, PublicProps } from '../types';
 
-const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
+// export const ThemedTextField: React.FC<InternalProps> = (props) => {
+export const TextField: React.FC<InternalProps> = (props) => {
   const [state, setState] = React.useState({
     isFocused: false,
     isHovered: false,
@@ -59,7 +60,8 @@ const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
       }
 
       if (forwardedRef && typeof forwardedRef === 'object') {
-        forwardedRef.current = ref;
+        // TODO: fix
+        // forwardedRef.current = ref;
       }
     },
     [register, props.forwardedRef],
@@ -74,8 +76,8 @@ const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
 
   const { isFocused, isHovered } = state;
 
-  const { mode } = useGlobalTheme();
-  const tokens = Theme.useTheme({ isFocused });
+  // const { mode } = useGlobalTheme({ mode: 'light' });
+  // const tokens = Theme.useTheme({ isFocused, mode });
 
   return (
     <Input
@@ -89,19 +91,20 @@ const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
       onMouseDown={handleOnMouseDown}
-      theme={tokens}
+      // theme={tokens}
+      theme={{ container: {} }}
     />
   );
 };
 
-export const TextField = React.forwardRef<HTMLInputElement, PublicProps>(
-  function WrappedTextField(props, ref) {
-    const { mode } = useGlobalTheme();
+// export const TextField = React.forwardRef<HTMLInputElement, PublicProps>(
+//   function WrappedTextField(props, ref) {
+//     return (
+//       // <Theme.Provider>
+//       <ThemedTextField {...props} forwardedRef={ref} />
+//       // </Theme.Provider>
+//     );
+//   },
+// );
 
-    return (
-      <Theme.ThemeProvider mode={mode}>
-        <TextFieldWithForwardRef {...props} forwardedRef={ref} />
-      </Theme.ThemeProvider>
-    );
-  },
-);
+// export const TextField = () => <button>Hello, world</button>;
