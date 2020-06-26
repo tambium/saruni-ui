@@ -1,5 +1,5 @@
 import React from 'react';
-import { createTheme, ThemeModes } from '@saruni-ui/theme-next';
+import { createTheme, ThemeModes } from '@saruni-ui/theme';
 
 import * as componentTokens from './component-tokens';
 

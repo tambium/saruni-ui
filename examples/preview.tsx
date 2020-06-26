@@ -5,7 +5,7 @@ import {
   Reset,
   ResetThemeTokens,
   ResetThemeProps,
-} from '@saruni-ui/theme-next';
+} from '@saruni-ui/theme';
 
 const customTheme = (baseTokens: ResetThemeTokens, props?: ResetThemeProps) => {
   return {

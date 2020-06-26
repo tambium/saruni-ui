@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProp } from '@saruni-ui/theme-next';
+import { ThemeProp } from '@saruni-ui/theme';
 import { ThemeProps, ThemeTokens } from './theme';
 
 export interface PublicProps extends React.AllHTMLAttributes<HTMLInputElement> {

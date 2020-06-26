@@ -9,8 +9,8 @@
   "dependencies": {
     "@babel/register": "^7.10.3",
     "@saruni-ui/form": "^0.0.1",
-    "@saruni-ui/textfeld": "^0.0.1",
-    "@saruni-ui/theme-next": "^0.0.3",
+    "@saruni-ui/textfield": "^0.0.1",
+    "@saruni-ui/theme": "^0.0.3",
     "@storybook/addon-controls": "^6.0.0-beta.37",
     "@storybook/addon-essentials": "^6.0.0-beta.37",
     "@storybook/react": "^6.0.0-beta.37",

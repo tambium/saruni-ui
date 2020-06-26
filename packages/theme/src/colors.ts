@@ -1,142 +1,35 @@
-export const I50 = '#f8f4fd';
-export const I100 = '#e5e0f3';
-export const I200 = '#c8bede';
-export const I300 = '#a697c5';
-export const I400 = '#806ba8';
-export const I500 = '#5f4591';
-export const I600 = '#483176';
-export const I700 = '#3c2767';
-export const I800 = '#301c59';
-export const I900 = '#24124d';
+export interface RoleColors {
+  /** The surface role is used for the backgrounds of the UI. */
+  surface: string;
+  /** The onSurface role is made up of elements which appear on top of a surface, including borders, secondary icons, and text. */
+  onSurface: string;
+  /** The interactive role is used to express interactivity in components. It is used in links, as an indicator of focus, and as an indicator of selected interactive states. */
+  interactive: string;
+  /** A secondary interactive color role, for use in secondary and tertiary buttons as a background color, as well as in form elements as a background color. */
+  secondary: string;
+  /** A primary interactive color, for use in primary buttons as a background color. Also used in navigation and tabs for icons, and for a surface color when in a selected state. */
+  primary: string;
+  /** Used to communicate destructive outcomes on interactive elements, for communicating errors, and to indicate a critical event in inert elements that requires immediate action. */
+  critical: string;
+  /** For use as an indicator that action should be taken in components including badges, banners, and exception lists. */
+  warning: string;
+  /** Used to highlight elements of the UI that are important, but do not require immediate action. Used in information banners and badges, indicators that draw attention to new information, bars that indicate loading or progress, and in data visualization. */
+  highlight: string;
+  /** Used to indicate the result of a successful action taken, to indicate a positive event, or to illustrate growth. */
+  success: string;
+  /** Used to decorate elements where color does convey a specific meaning in components like avatars */
+  decorative: string;
+}
 
-export const M50 = '#fff1f5';
-export const M100 = '#fedce4';
-export const M200 = '#ffbac8';
-export const M300 = '#fe98ac';
-export const M400 = '#fb7591';
-export const M500 = '#f84f77';
-export const M600 = '#d7355f';
-export const M700 = '#b41e45';
-export const M800 = '#8f092a';
-export const M900 = '#68000d';
-
-export const F50 = '#f8eff6';
-export const F100 = '#eed5e7';
-export const F200 = '#deacce';
-export const F300 = '#cc83b6';
-export const F400 = '#bb5b9d';
-export const F500 = '#a82d85';
-export const F600 = '#981d77';
-export const F700 = '#850f66';
-export const F800 = '#6e0352';
-export const F900 = '#55003c';
-
-export const P50 = '#f1eff8';
-export const P100 = '#dcd5ee';
-export const P200 = '#baaadd';
-export const P300 = '#9980cb';
-export const P400 = '#7757ba';
-export const P500 = '#512da8';
-export const P600 = '#43229b';
-export const P700 = '#36178f';
-export const P800 = '#2a0c84';
-export const P900 = '#1d027a';
-
-export const N50 = '#eff2f8';
-export const N100 = '#d6ddec';
-export const N200 = '#aeb9d9';
-export const N300 = '#8796c5';
-export const N400 = '#6074b2';
-export const N500 = '#33539f';
-export const N600 = '#244791';
-export const N700 = '#173c84';
-export const N800 = '#093177';
-export const N900 = '#00276b';
-
-export const B50 = '#f1f5ff';
-export const B100 = '#dce6fe';
-export const B200 = '#bcccfd';
-export const B300 = '#9cb3fb';
-export const B400 = '#7a9afa';
-export const B500 = '#5182f8';
-export const B600 = '#3769db';
-export const B700 = '#2052bf';
-export const B800 = '#0b3ba3';
-export const B900 = '#002688';
-
-export const T50 = '#edfafa';
-export const T100 = '#d2f1f3';
-export const T200 = '#aae3e6';
-export const T300 = '#82d4da';
-export const T400 = '#58c6cd';
-export const T500 = '#1eb8c1';
-export const T600 = '#10919a';
-export const T700 = '#056f78';
-export const T800 = '#01515b';
-export const T900 = '#003842';
-
-export const G50 = '#ebf7f6';
-export const G100 = '#cceae7';
-export const G200 = '#9ed5cf';
-export const G300 = '#72c0b7';
-export const G400 = '#45ab9f';
-export const G500 = '#009688';
-export const G600 = '#007265';
-export const G700 = '#00554a';
-export const G800 = '#004037';
-export const G900 = '#003229';
-
-export const L50 = '#f7faf2';
-export const L100 = '#e9f1dd';
-export const L200 = '#d3e3ba';
-export const L300 = '#bed698';
-export const L400 = '#a8c876';
-export const L500 = '#91bb54';
-export const L600 = '#719a37';
-export const L700 = '#517a1f';
-export const L800 = '#325a0c';
-export const L900 = '#133c00';
-
-export const Y50 = '#fff9eb';
-export const Y100 = '#fff0cc';
-export const Y200 = '#ffe09c';
-export const Y300 = '#ffd170';
-export const Y400 = '#ffc244';
-export const Y500 = '#ffb300';
-export const Y600 = '#e49b00';
-export const Y700 = '#c27e00';
-export const Y800 = '#9a5c01';
-export const Y900 = '#6c3500';
-
-export const C50 = '#faf4ef';
-export const C100 = '#f2e2d6';
-export const C200 = '#e7c5ad';
-export const C300 = '#dba784';
-export const C400 = '#ce8b5c';
-export const C500 = '#bf6e33';
-export const C600 = '#a2551e';
-export const C700 = '#853d0f';
-export const C800 = '#6a2507';
-export const C900 = '#500b00';
-
-export const O50 = '#fdf3ef';
-export const O100 = '#fadfd7';
-export const O200 = '#f7c0ae';
-export const O300 = '#f3a185';
-export const O400 = '#ec815d';
-export const O500 = '#e46135';
-export const O600 = '#c84a23';
-export const O700 = '#ab3314';
-export const O800 = '#8c1c0a';
-export const O900 = '#6c0000';
-
-export const R50 = '#fdf1f1';
-export const R100 = '#fadada';
-export const R200 = '#f7b6b4';
-export const R300 = '#f2938f';
-export const R400 = '#ec6f6b';
-export const R500 = '#e44848';
-export const R600 = '#c52e33';
-export const R700 = '#a61820';
-export const R800 = '#870611';
-export const R900 = '#6a0000';
+export const baseColors = {
+  critical: '#D82C0D',
+  decorative: '#FFC96B',
+  highlight: '#5BCDDA',
+  interactive: '#2E72D2',
+  onSurface: '#111213',
+  primary: '#008060',
+  secondary: '#111213',
+  success: '#008060',
+  surface: '#111213',
+  warning: '#FFC453',
+};

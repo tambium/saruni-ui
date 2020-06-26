@@ -4,5 +4,5 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "references": [{ "path": "../form" }, { "path": "../theme-next" }]
+  "references": [{ "path": "../form" }, { "path": "../theme" }]
 }

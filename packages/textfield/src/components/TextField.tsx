@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FieldContext } from '@saruni-ui/form';
-import { useGlobalTheme } from '@saruni-ui/theme-next';
+import { useGlobalTheme } from '@saruni-ui/theme';
 
 import { Theme } from '../theme';
 import { Input } from './Input';
