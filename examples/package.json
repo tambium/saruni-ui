@@ -3,32 +3,31 @@
   "version": "0.0.1",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "start-storybook -p 9011 -c ./ --ci"
+    "debug": "STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./ --no-dll",
+    "storybook": "STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 -c ./ --no-dll"
   },
   "dependencies": {
     "@babel/register": "^7.10.3",
-    "@saruni-ui/button": "0.0.2",
     "@saruni-ui/form": "^0.0.1",
-    "@saruni-ui/textfield": "0.0.1",
-    "@saruni-ui/theme": "0.0.3",
-    "@saruni-ui/theme-next": "0.0.3",
-    "@storybook/addon-controls": "^6.0.0-beta.32",
-    "@storybook/addon-essentials": "^6.0.0-beta.32",
-    "@storybook/react": "^6.0.0-beta.32",
+    "@saruni-ui/textfield": "^0.0.1",
+    "@saruni-ui/theme": "^0.0.3",
+    "@storybook/addon-controls": "^6.0.0-beta.37",
+    "@storybook/addon-essentials": "^6.0.0-beta.37",
+    "@storybook/react": "^6.0.0-beta.37",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
+    "typescript": "^3.9.5",
     "yarn": "^1.22.4",
     "yup": "^0.29.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@types/react": "^16.9.38",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/yup": "^0.29.3",
     "babel-loader": "^8.1.0",
-    "typescript": "^3.9.5",
     "webpack": "^4.43.0"
   }
 }

@@ -1,5 +1,3 @@
-const path = require(`path`);
-
 /*
  * Q: Why is @babel/register installed?
  * A: Before install, received the following warning:
@@ -14,7 +12,6 @@ module.exports = {
   addons: ['@storybook/addon-essentials', '@storybook/addon-controls'],
   typescript: {
     reactDocgenTypescriptOptions: {
-      tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
       propFilter: (prop) => ['label', 'disabled'].includes(prop.name),
     },
   },
