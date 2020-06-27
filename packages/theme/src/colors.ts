@@ -21,7 +21,30 @@ export interface RoleColors {
   decorative: string;
 }
 
+export const baseTheme = {
+  colors: {},
+};
+
+export const lightTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    background: '#FFFFFF',
+    text: '#202223',
+  },
+};
+
+export const darkTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    background: '#0B0C0D',
+    text: '#E3E5E7',
+  },
+};
+
 export const baseColors = {
+  background: '#FFF',
   critical: '#D82C0D',
   decorative: '#FFC96B',
   highlight: '#5BCDDA',
@@ -32,4 +55,14 @@ export const baseColors = {
   success: '#008060',
   surface: '#111213',
   warning: '#FFC453',
+};
+
+export const background = {
+  light: lightTheme.colors.background,
+  dark: darkTheme.colors.background,
+};
+
+export const text = {
+  light: lightTheme.colors.text,
+  dark: darkTheme.colors.text,
 };

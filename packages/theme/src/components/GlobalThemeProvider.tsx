@@ -1,11 +1,16 @@
 import { createTheme } from '../utils';
-import { DEFAULT_THEME_MODE } from '../constants';
-import { GlobalThemeProps, GlobalThemeTokens } from '../types';
+import { GlobalThemeTokens } from '../types';
 
-const GlobalTheme = createTheme<GlobalThemeTokens, GlobalThemeProps>(() => ({
-  mode: DEFAULT_THEME_MODE,
-}));
+const GlobalTheme = createTheme<GlobalThemeTokens, any>(({ mode }) => {
+  return {
+    mode,
+  };
+});
 
-const { Provider, useTheme } = GlobalTheme;
+const { Consumer, Provider, useTheme } = GlobalTheme;
 
-export { Provider as GlobalThemeProvider, useTheme as useGlobalTheme };
+export {
+  Consumer as GlobalThemeConsumer,
+  Provider as GlobalThemeProvider,
+  useTheme as useGlobalTheme,
+};

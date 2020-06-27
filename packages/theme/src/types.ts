@@ -6,10 +6,6 @@ export interface Theme {
 
 export type GlobalThemeTokens = Theme;
 
-export interface GlobalThemeProps {
-  mode: ThemeModes;
-}
-
 export type ThemeProp<ThemeTokens, ThemeProps> = (
   baseTokens: ThemeTokens,
   themeProps?: ThemeProps,
@@ -17,6 +13,7 @@ export type ThemeProp<ThemeTokens, ThemeProps> = (
 
 export interface ResetThemeTokens {
   backgroundColor: string;
+  color: string;
   fontSize?: number;
 }
 
