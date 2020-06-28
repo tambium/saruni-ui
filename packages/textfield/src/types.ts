@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProp } from '@saruni-ui/theme';
-import { ThemeProps, ThemeTokens } from './theme';
+import { TextfieldThemeProps, TextfieldThemeTokens } from './theme';
 
 export interface PublicProps extends React.AllHTMLAttributes<HTMLInputElement> {
   /** Sets the field uneditable. */
@@ -16,7 +16,7 @@ export interface PublicProps extends React.AllHTMLAttributes<HTMLInputElement> {
   /** Mousedown handler that will fire on the container element */
   onMouseDown?: React.MouseEventHandler<HTMLElement>;
   /** Theme component should use. */
-  theme?: ThemeProp<ThemeTokens, ThemeProps>;
+  theme?: ThemeProp<TextfieldThemeTokens, TextfieldThemeProps>;
   /** Sets maximum width of input */
   width?: string | number;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeTokens } from '../theme';
+import { TextfieldThemeTokens } from '../theme';
 import { CSSObject } from '@emotion/core';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -15,7 +15,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   onMouseEnter: React.MouseEventHandler<HTMLElement>;
   onMouseLeave: React.MouseEventHandler<HTMLElement>;
 
-  theme: ThemeTokens;
+  theme: TextfieldThemeTokens;
 }
 
 export const Input: React.FC<Props> = ({
@@ -43,19 +43,7 @@ export const Input: React.FC<Props> = ({
 
   return (
     <div css={theme.container as CSSObject}>
-      <input
-        css={{
-          backgroundColor: 'transparent',
-          borderRadius: 4,
-          borderWidth: 0,
-          flex: '1 1 auto',
-          padding: '8px 4px',
-          outline: 0,
-          width: '100%',
-        }}
-        ref={innerRef}
-        {...inputProps}
-      />
+      <input css={theme.input as CSSObject} ref={innerRef} {...inputProps} />
     </div>
   );
 };

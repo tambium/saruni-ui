@@ -1,4 +1,4 @@
 import { TextField } from './components/TextField';
-export { ThemeProps, ThemeTokens } from './theme';
+export { TextfieldThemeProps, TextfieldThemeTokens } from './theme';
 
 export { TextField };

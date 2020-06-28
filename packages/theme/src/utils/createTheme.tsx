@@ -26,6 +26,25 @@ export function createTheme<ThemeTokens, ThemeProps>(
     );
   };
 
+  const Consumer = (
+    props: ThemeProps & {
+      children: (customizedTokens: ThemeTokens) => React.ReactNode;
+    },
+  ) => {
+    const { children, ...themeProps } = props;
+    const { createTokenFn, customTheme } = React.useContext(ThemeContext);
+
+    // @ts-ignore
+    const baseTokens = createTokenFn(themeProps);
+
+    const customizedTokens = {
+      ...baseTokens,
+      ...customTheme(baseTokens, props),
+    };
+
+    return <React.Fragment>{children(customizedTokens)}</React.Fragment>;
+  };
+
   function useTheme(props: ThemeProps) {
     const { createTokenFn, customTheme } = React.useContext(ThemeContext);
 
@@ -39,5 +58,5 @@ export function createTheme<ThemeTokens, ThemeProps>(
     return { tokens: customizedTokens };
   }
 
-  return { Provider, useTheme };
+  return { Consumer, Provider, useTheme };
 }

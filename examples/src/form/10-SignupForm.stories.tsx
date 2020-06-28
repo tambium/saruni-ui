@@ -17,19 +17,17 @@ const SignupSchema = object().shape({
     .required(),
 });
 
-export const SignupForm = () => {
+export const SignupForm = (props) => {
   const formMethods = useForm({
     mode: 'onBlur',
     validationSchema: SignupSchema,
   });
 
   return (
-    <div css={{ backgroundColor: '#F8FAFC' }}>
-      <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
-        <Field name="firstName" label="First name" placeholder="First name">
-          <TextField />
-        </Field>
-      </Form>
-    </div>
+    <Form formMethods={formMethods} onSubmit={(data) => console.log(data)}>
+      <Field name="firstName" label="First name" placeholder="First name">
+        <TextField />
+      </Field>
+    </Form>
   );
 };

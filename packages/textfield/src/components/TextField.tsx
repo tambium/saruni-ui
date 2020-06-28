@@ -1,13 +1,13 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FieldContext } from '@saruni-ui/form';
-import { useGlobalTheme } from '@saruni-ui/theme';
+import { GlobalThemeConsumer, ThemeModes } from '@saruni-ui/theme';
 
 import { Theme } from '../theme';
 import { Input } from './Input';
 import { InternalProps, PublicProps } from '../types';
 
-export const ThemedTextField: React.FC<InternalProps> = (props) => {
+export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
   const [state, setState] = React.useState({
     isFocused: false,
     isHovered: false,
@@ -68,41 +68,44 @@ export const ThemedTextField: React.FC<InternalProps> = (props) => {
 
   const handleOnMouseDown = (event: React.MouseEvent<HTMLElement>) => {
     if (inputRef && !props.isDisabled) {
-      // handle focus...
+      // TODO: handle focus...
     }
     if (props.onMouseDown) props.onMouseDown(event);
   };
 
   const { isFocused, isHovered } = state;
 
-  const {
-    tokens: { mode },
-  } = useGlobalTheme({ mode: 'light' });
-  const { tokens } = Theme.useTheme({ isFocused, mode });
-
   return (
-    <Input
-      {...otherProps}
-      isDisabled={isDisabled!}
-      isReadOnly={isReadOnly!}
-      isRequired={isRequired!}
-      innerRef={inputRef}
-      onBlur={handleOnBlur}
-      onFocus={handleOnFocus}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      onMouseDown={handleOnMouseDown}
-      theme={tokens}
-    />
+    <Theme.Provider theme={props.theme}>
+      <GlobalThemeConsumer>
+        {({ mode }: { mode: ThemeModes }) => (
+          <Theme.Consumer
+            isFocused={isFocused}
+            isInvalid={isInvalid}
+            mode={mode}
+          >
+            {(tokens) => (
+              <Input
+                {...otherProps}
+                isDisabled={isDisabled!}
+                isReadOnly={isReadOnly!}
+                isRequired={isRequired!}
+                innerRef={inputRef}
+                onBlur={handleOnBlur}
+                onFocus={handleOnFocus}
+                onMouseEnter={handleOnMouseEnter}
+                onMouseLeave={handleOnMouseLeave}
+                onMouseDown={handleOnMouseDown}
+                theme={tokens}
+              />
+            )}
+          </Theme.Consumer>
+        )}
+      </GlobalThemeConsumer>
+    </Theme.Provider>
   );
 };
 
 export const TextField = React.forwardRef<HTMLInputElement, PublicProps>(
-  function WrappedTextField(props, ref) {
-    return (
-      <Theme.Provider theme={props.theme}>
-        <ThemedTextField {...props} forwardedRef={ref} />
-      </Theme.Provider>
-    );
-  },
+  (props, ref) => <TextFieldWithForwardRef {...props} forwardedRef={ref} />,
 );

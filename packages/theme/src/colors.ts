@@ -21,15 +21,59 @@ export interface RoleColors {
   decorative: string;
 }
 
-export const baseColors = {
-  critical: '#D82C0D',
-  decorative: '#FFC96B',
-  highlight: '#5BCDDA',
-  interactive: '#2E72D2',
-  onSurface: '#111213',
-  primary: '#008060',
-  secondary: '#111213',
-  success: '#008060',
-  surface: '#111213',
-  warning: '#FFC453',
+export const baseTheme = {
+  colors: {
+    borderCritical: '#E32F0E',
+  },
+};
+
+export const lightTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    background: '#FFFFFF',
+    border: '#8C9196',
+    focused: '#458FFF',
+    text: '#202223',
+    textCritical: '#D72C0D',
+  },
+};
+
+export const darkTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    background: '#0B0C0D',
+    border: '#505356',
+    focused: '#2662B6',
+    text: '#E3E5E7',
+    textCritical: '#E9807A',
+  },
+};
+
+export const background = {
+  light: lightTheme.colors.background,
+  dark: darkTheme.colors.background,
+};
+
+export const border = {
+  light: lightTheme.colors.border,
+  dark: darkTheme.colors.border,
+};
+
+export const borderCritical = baseTheme.colors.borderCritical;
+
+export const focused = {
+  light: lightTheme.colors.focused,
+  dark: darkTheme.colors.focused,
+};
+
+export const text = {
+  light: lightTheme.colors.text,
+  dark: darkTheme.colors.text,
+};
+
+export const textCritical = {
+  light: lightTheme.colors.textCritical,
+  dark: darkTheme.colors.textCritical,
 };
