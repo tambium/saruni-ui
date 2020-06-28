@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@babel/register": "^7.10.3",
+    "@saruni-ui/button": "^0.0.2",
     "@saruni-ui/form": "^0.0.1",
     "@saruni-ui/textfield": "^0.0.1",
     "@saruni-ui/theme": "^0.0.3",
