@@ -1,42 +1,85 @@
 import React from 'react';
-import { colors, createTheme, ThemeModes } from '@saruni-ui/theme';
-
-import * as componentTokens from './component-tokens';
+import {
+  colors,
+  createTheme,
+  generateShadow,
+  hexToRgba,
+  shadows,
+  ThemeModes,
+} from '@saruni-ui/theme';
 
 const getContainerBoxShadow = ({
-  hasBase = true,
+  hasKeyline = true,
   isFocused,
+  isInvalid,
+  mode,
 }: {
-  hasBase?: boolean;
+  hasKeyline?: boolean;
   isFocused: boolean;
+  isInvalid: boolean;
+  mode: ThemeModes;
 }) => {
-  if (isFocused)
-    return `rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(58, 151, 212, 0.36) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px`;
-  if (hasBase)
-    return `rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px`;
+  const shadowConfigs = {
+    hasKeyline: [
+      {
+        values: shadows.state.keyline,
+        color: hexToRgba(colors.border[mode], 0.36),
+      },
+    ],
+    isFocused: [
+      {
+        values: shadows.state.focused,
+        color: isInvalid
+          ? hexToRgba(colors.borderCritical, 0.36)
+          : hexToRgba(colors.focused[mode], 0.36),
+      },
+    ],
+  };
+
+  if (isFocused) {
+    return generateShadow({
+      props: { hasKeyline, isFocused },
+      shadowConfigs,
+    });
+  }
+  if (hasKeyline) {
+    return generateShadow({
+      props: { hasKeyline },
+      shadowConfigs,
+    });
+  }
   return undefined;
 };
 
-export interface ThemeProps {
+export interface TextfieldThemeProps {
+  isInvalid: boolean;
   isFocused: boolean;
   mode: ThemeModes;
 }
 
-export interface ThemeTokens {
+export interface TextfieldThemeTokens {
   container: React.CSSProperties;
+  input: React.CSSProperties;
 }
 
-const boxShadow = componentTokens.defaultBoxShadowColor;
-
-export const Theme = createTheme<ThemeTokens, ThemeProps>(
-  ({ isFocused, mode }) => {
+export const Theme = createTheme<TextfieldThemeTokens, TextfieldThemeProps>(
+  ({ isFocused, isInvalid, mode }) => {
     return {
       container: {
         backgroundColor: colors.background[mode],
         borderRadius: 4,
-        boxShadow: getContainerBoxShadow({ isFocused }),
+        boxShadow: getContainerBoxShadow({ isFocused, isInvalid, mode }),
         cursor: 'pointer',
         transition: 'box-shadow 0.2s ease',
+      },
+      input: {
+        backgroundColor: 'transparent',
+        borderRadius: 4,
+        borderWidth: 0,
+        flex: '1 1 auto',
+        padding: '8px',
+        outline: 0,
+        width: '100%',
       },
     };
   },

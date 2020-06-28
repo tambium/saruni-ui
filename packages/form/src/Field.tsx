@@ -1,5 +1,9 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
+import { GlobalThemeConsumer, ThemeModes } from '@saruni-ui/theme';
+import { CSSObject } from '@emotion/core';
+
+import { Theme } from './theme';
 
 export interface FieldProps {
   id?: string;
@@ -64,10 +68,28 @@ export const Field: React.FC<Props> = (props) => {
   };
 
   return (
-    <FieldContext.Provider value={{ ...extendedFieldProps }}>
-      {props.label && <label>{props.label}</label>}
-      {props.children}
-      {isInvalid && invalidMessage && <div>{invalidMessage}</div>}
-    </FieldContext.Provider>
+    <Theme.Provider>
+      <GlobalThemeConsumer>
+        {({ mode }: { mode: ThemeModes }) => (
+          <Theme.Consumer mode={mode}>
+            {(tokens) => {
+              return (
+                <FieldContext.Provider value={{ ...extendedFieldProps }}>
+                  {props.label && (
+                    <label css={tokens.label as CSSObject}>{props.label}</label>
+                  )}
+                  {props.children}
+                  {isInvalid && invalidMessage && (
+                    <div css={tokens.invalidMessage as CSSObject}>
+                      {invalidMessage}
+                    </div>
+                  )}
+                </FieldContext.Provider>
+              );
+            }}
+          </Theme.Consumer>
+        )}
+      </GlobalThemeConsumer>
+    </Theme.Provider>
   );
 };

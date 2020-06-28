@@ -5,11 +5,13 @@ import {
   useGlobalTheme,
 } from './components/GlobalThemeProvider';
 import { Reset } from './components/Reset';
-import { createTheme } from './utils/createTheme';
+import { createTheme, hexToRgba, generateShadow } from './utils';
 
 export {
   colors,
   createTheme,
+  generateShadow,
+  hexToRgba,
   GlobalThemeConsumer,
   GlobalThemeProvider,
   Reset,

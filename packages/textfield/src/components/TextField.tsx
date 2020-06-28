@@ -68,7 +68,7 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
 
   const handleOnMouseDown = (event: React.MouseEvent<HTMLElement>) => {
     if (inputRef && !props.isDisabled) {
-      // handle focus...
+      // TODO: handle focus...
     }
     if (props.onMouseDown) props.onMouseDown(event);
   };
@@ -79,7 +79,11 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
     <Theme.Provider theme={props.theme}>
       <GlobalThemeConsumer>
         {({ mode }: { mode: ThemeModes }) => (
-          <Theme.Consumer isFocused={isFocused} mode={mode}>
+          <Theme.Consumer
+            isFocused={isFocused}
+            isInvalid={isInvalid}
+            mode={mode}
+          >
             {(tokens) => (
               <Input
                 {...otherProps}
