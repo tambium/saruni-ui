@@ -16,7 +16,7 @@ const getContainerBoxShadow = ({
 }: {
   hasKeyline?: boolean;
   isFocused: boolean;
-  isInvalid: boolean;
+  isInvalid?: boolean;
   mode: ThemeModes;
 }) => {
   const shadowConfigs = {
@@ -52,7 +52,7 @@ const getContainerBoxShadow = ({
 };
 
 export interface TextfieldThemeProps {
-  isInvalid: boolean;
+  isInvalid?: boolean;
   isFocused: boolean;
   mode: ThemeModes;
 }
