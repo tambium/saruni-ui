@@ -12,11 +12,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "scripts": {
-    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
-    "check:tsc": "tsc",
-    "delete:build": "rm -rf dist && rm -f -- tsconfig.tsbuildinfo"
-  },
   "dependencies": {
     "@emotion/core": "^10.0.27"
   },
