@@ -9,12 +9,10 @@ import {
 } from '@saruni-ui/theme';
 
 const getContainerBoxShadow = ({
-  hasKeyline = true,
   isFocused,
   isInvalid,
   mode,
 }: {
-  hasKeyline?: boolean;
   isFocused: boolean;
   isInvalid?: boolean;
   mode: ThemeModes;
@@ -36,19 +34,10 @@ const getContainerBoxShadow = ({
     ],
   };
 
-  if (isFocused) {
-    return generateShadow({
-      props: { hasKeyline, isFocused },
-      shadowConfigs,
-    });
-  }
-  if (hasKeyline) {
-    return generateShadow({
-      props: { hasKeyline },
-      shadowConfigs,
-    });
-  }
-  return undefined;
+  return generateShadow({
+    props: { hasKeyline: true, isFocused },
+    shadowConfigs,
+  });
 };
 
 export interface TextfieldThemeProps {
@@ -77,6 +66,7 @@ export const Theme = createTheme<TextfieldThemeTokens, TextfieldThemeProps>(
         borderRadius: 4,
         borderWidth: 0,
         flex: '1 1 auto',
+        height: 32,
         padding: '8px',
         outline: 0,
         width: '100%',

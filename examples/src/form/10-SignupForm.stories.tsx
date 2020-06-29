@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { string, object } from 'yup';
+import { Button } from '@saruni-ui/button';
 import { TextField } from '@saruni-ui/textfield';
 import { Field, Form } from '@saruni-ui/form';
 
@@ -28,6 +29,7 @@ export const SignupForm = (props) => {
       <Field name="firstName" label="First name" placeholder="First name">
         <TextField />
       </Field>
+      <Button>Sign up</Button>
     </Form>
   );
 };

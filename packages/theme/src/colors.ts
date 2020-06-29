@@ -24,6 +24,7 @@ export interface RoleColors {
 export const baseTheme = {
   colors: {
     borderCritical: '#E32F0E',
+    interactiveText: '#FFFFFF',
   },
 };
 
@@ -34,6 +35,9 @@ export const lightTheme = {
     background: '#FFFFFF',
     border: '#8C9196',
     focused: '#458FFF',
+    interactive: '#2C6ECB',
+    interactiveHovered: '#1F5199',
+    interactivePressed: '#103262',
     text: '#202223',
     textCritical: '#D72C0D',
   },
@@ -46,6 +50,9 @@ export const darkTheme = {
     background: '#0B0C0D',
     border: '#505356',
     focused: '#2662B6',
+    interactive: '#36A3FF',
+    interactiveHovered: '#67AFFF',
+    interactivePressed: '#88BCFF',
     text: '#E3E5E7',
     textCritical: '#E9807A',
   },
@@ -62,6 +69,23 @@ export const border = {
 };
 
 export const borderCritical = baseTheme.colors.borderCritical;
+
+export const interactive = {
+  light: lightTheme.colors.interactive,
+  dark: darkTheme.colors.interactive,
+};
+
+export const interactiveHovered = {
+  light: lightTheme.colors.interactiveHovered,
+  dark: darkTheme.colors.interactiveHovered,
+};
+
+export const interactivePressed = {
+  light: lightTheme.colors.interactivePressed,
+  dark: darkTheme.colors.interactivePressed,
+};
+
+export const interactiveText = baseTheme.colors.interactiveText;
 
 export const focused = {
   light: lightTheme.colors.focused,

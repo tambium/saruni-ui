@@ -16,17 +16,18 @@ export const generateShadow = ({
 }): string => {
   let result = ``;
 
-  Object.keys(props).forEach((prop, idx, arr) => {
-    const isLast = idx === arr.length - 1;
-
-    if (!shadowConfigs[prop]) return;
-    shadowConfigs[prop].forEach((config, innerIdx, childArr) => {
-      const isLastInConfigs = innerIdx === childArr.length - 1;
-      result += `${config.values} ${config.color}${
-        !isLast || !isLastInConfigs ? `,` : ``
-      }`;
+  Object.keys(props)
+    .filter((prop) => Boolean(props[prop]))
+    .forEach((prop, idx, arr) => {
+      const isLast = idx === arr.length - 1;
+      if (!shadowConfigs[prop]) return;
+      shadowConfigs[prop].forEach((config, innerIdx, childArr) => {
+        const isLastInConfigs = innerIdx === childArr.length - 1;
+        result += `${config.values} ${config.color}${
+          !isLast || !isLastInConfigs ? `,` : ``
+        }`;
+      });
     });
-  });
 
   return result;
 };

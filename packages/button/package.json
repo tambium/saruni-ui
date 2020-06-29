@@ -1,0 +1,30 @@
+{
+  "name": "@saruni-ui/button",
+  "version": "0.0.2",
+  "author": "Tambium",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "check:tsc": "tsc",
+    "delete:build": "rm -rf dist && rm -f -- tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@saruni-ui/theme": "^0.0.3"
+  },
+  "devDependencies": {
+    "react-dom": "^16.12.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  }
+}
