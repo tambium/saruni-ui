@@ -4,5 +4,5 @@ import { Button as SaruniButton } from '@saruni-ui/button';
 export default { title: 'Button' };
 
 export const Button = (props) => {
-  return <SaruniButton>Button</SaruniButton>;
+  return <SaruniButton appearance="primary">Button</SaruniButton>;
 };
