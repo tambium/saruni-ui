@@ -7,7 +7,7 @@ export interface ButtonThemeProps extends Partial<ButtonProps> {
   mode: ThemeModes;
 }
 
-export type ButtonAppearances = 'default' | 'primary';
+export type ButtonAppearances = 'default' | 'primary' | 'link';
 
 export interface ButtonProps {
   appearance: ButtonAppearances;

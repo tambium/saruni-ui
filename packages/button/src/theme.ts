@@ -20,6 +20,9 @@ const appearances = {
       isHovered: colors.interactiveHovered,
       isActive: colors.interactivePressed,
     },
+    link: {
+      default: 'initial',
+    },
   },
   boxShadowColor: {
     primary: {
@@ -28,10 +31,18 @@ const appearances = {
       isHovered: colors.interactiveHovered,
       isFocused: colors.focused,
     },
+    link: {
+      default: 'transparent',
+      isActive: colors.interactivePressed,
+      isFocused: colors.focused,
+    },
   },
   color: {
     primary: {
       default: colors.interactiveText,
+    },
+    link: {
+      default: colors.interactive,
     },
   },
 };
