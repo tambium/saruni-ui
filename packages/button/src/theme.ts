@@ -38,7 +38,7 @@ const pluckStyle = ({
   const appearanceStyles = propertyStyles[props.appearance];
   const stateStyles = appearanceStyles[props.state];
   if (!stateStyles) return 'inherit';
-  // We may or may not supply light/dark modes.
+  // We may or may not supply light/dark modes, so check for object.
   if (stateStyles && typeof stateStyles === 'object') {
     return stateStyles[props.mode];
   } else return stateStyles;
@@ -62,6 +62,7 @@ const staticStyles = {
   outline: 0,
   padding: '8px 16px',
   textDecoration: 'none',
+  transition: 'background-color 0.2s ease-out',
   whiteSpace: 'nowrap',
 };
 
