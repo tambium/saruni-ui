@@ -37,6 +37,7 @@ export const lightTheme = {
     focused: '#458FFF',
     interactive: '#2C6ECB',
     interactiveHovered: '#1F5199',
+    interactivePressed: '#103262',
     text: '#202223',
     textCritical: '#D72C0D',
   },
@@ -51,6 +52,7 @@ export const darkTheme = {
     focused: '#2662B6',
     interactive: '#36A3FF',
     interactiveHovered: '#67AFFF',
+    interactivePressed: '#88BCFF',
     text: '#E3E5E7',
     textCritical: '#E9807A',
   },
@@ -76,6 +78,11 @@ export const interactive = {
 export const interactiveHovered = {
   light: lightTheme.colors.interactiveHovered,
   dark: darkTheme.colors.interactiveHovered,
+};
+
+export const interactivePressed = {
+  light: lightTheme.colors.interactivePressed,
+  dark: darkTheme.colors.interactivePressed,
 };
 
 export const interactiveText = baseTheme.colors.interactiveText;

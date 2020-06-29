@@ -16,6 +16,9 @@ export interface ButtonProps {
   isDisabled?: boolean;
   onBlur?: React.FocusEventHandler<HTMLElement>;
   onFocus?: React.FocusEventHandler<HTMLElement>;
+  onMouseDown?: React.MouseEventHandler<HTMLElement>;
   onMouseEnter?: React.MouseEventHandler<HTMLElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
+  onMouseUp?: React.MouseEventHandler<HTMLElement>;
+  target?: string;
 }
