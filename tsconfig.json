@@ -4,6 +4,7 @@
   "references": [
     { "path": "./packages/button" },
     { "path": "./packages/form" },
+    { "path": "./packages/icon" },
     { "path": "./packages/textfield" },
     { "path": "./packages/theme" }
   ]
