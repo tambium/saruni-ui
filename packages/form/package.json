@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/form",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -13,8 +13,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@saruni-ui/theme": "^0.0.3",
     "@emotion/core": "^10.0.28",
+    "@saruni-ui/theme": "^0.0.4",
     "react-hook-form": "^5.7.2"
   },
   "devDependencies": {
