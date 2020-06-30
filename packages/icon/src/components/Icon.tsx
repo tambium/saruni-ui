@@ -20,8 +20,8 @@ export const Icon: React.FC<IconProps> = ({
       css={{
         ...getSize(),
         color: primaryColor || 'currentColor',
-        display: 'inline-block',
-        fill: secondaryColor || 'todo:background',
+        display: 'flex',
+        fill: secondaryColor,
         flexShrink: 0,
         lineHeight: 1,
 

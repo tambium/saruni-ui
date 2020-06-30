@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Icon } from '../.';
+import { IconProps } from '../types';
 
-export const Check: React.FC = () => {
+export const Check: React.FC<IconProps> = (props) => {
   return (
     <Icon
       glyph={() => (
@@ -15,6 +16,7 @@ export const Check: React.FC = () => {
           />
         </svg>
       )}
+      {...props}
     />
   );
 };
