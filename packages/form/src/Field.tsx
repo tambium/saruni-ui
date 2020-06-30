@@ -57,7 +57,7 @@ export const Field: React.FC<Props> = (props) => {
   ]);
 
   const extendedFieldProps = {
-    'aria-invalid': (errors[name] ? 'true' : 'false') as 'true' | 'false',
+    'aria-invalid': (errors[props.name] ? 'true' : 'false') as 'true' | 'false',
     'aria-labelledby': `${fieldId}-label ${fieldId}-helper ${fieldId}-valid ${fieldId}-error`,
     id: fieldId,
     isDisabled: Boolean(props.isDisabled),

@@ -59,8 +59,9 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
       }
 
       if (forwardedRef && typeof forwardedRef === 'object') {
-        // TODO: fix
-        // forwardedRef.current = ref;
+        // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31065
+        // @ts-ignore
+        forwardedRef.current = ref;
       }
     },
     [register, props.forwardedRef],
