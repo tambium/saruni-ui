@@ -3,6 +3,7 @@
   "files": [],
   "references": [
     { "path": "./packages/button" },
+    { "path": "./packages/checkbox" },
     { "path": "./packages/form" },
     { "path": "./packages/icon" },
     { "path": "./packages/textfield" },
