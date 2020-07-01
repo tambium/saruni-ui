@@ -16,9 +16,7 @@ export interface FieldProps {
   'aria-labelledby'?: string;
 }
 
-export const FieldContext = React.createContext<FieldProps>({
-  name: '',
-});
+export const FieldContext = React.createContext<Partial<FieldProps>>({});
 
 interface Props {
   /* Children to render in the field. */

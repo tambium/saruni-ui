@@ -12,26 +12,28 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
     isFocused: false,
     isHovered: false,
   });
-  const localRef = React.useRef();
-
-  const { forwardedRef, isReadOnly, width } = props;
-  const {
-    isDisabled,
-    isInvalid,
-    isRequired,
-    // width,
-    ...otherProps
-  } = React.useContext(FieldContext);
+  /** Support internal use of ref for focus, etc. */
+  const localRef = React.useRef<HTMLInputElement>();
   const { register } = useFormContext() || {};
+
+  const localProps = { ...props };
+  const propsFromFieldContext = React.useContext(FieldContext);
+
+  const textFieldProps = {
+    ...propsFromFieldContext,
+    ...localProps,
+  };
+
+  const { forwardedRef, isInvalid, onBlur, onFocus } = textFieldProps;
 
   const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setState((prevState) => ({ ...prevState, isFocused: false }));
-    if (props.onBlur) props.onBlur(event);
+    if (onBlur) onBlur(event);
   };
 
   const handleOnFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     setState((prevState) => ({ ...prevState, isFocused: true }));
-    if (props.onFocus) props.onFocus(event);
+    if (onFocus) onFocus(event);
   };
 
   const handleOnMouseEnter = () => {
@@ -46,17 +48,23 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
     }
   };
 
+  /** Manage the saving of ref. */
   const inputRef = React.useCallback(
     (ref) => {
+      /**
+       * Ref should be in mutable state, so we save it
+       * This is so we can pass to register, or give it back to developer for use.
+       */
       localRef.current = ref;
 
-      if (register) {
-        register({ required: isRequired })(ref);
-      }
+      /** If within <Form />, we "register" ref for react-hook-form to use. */
+      if (register) register({ required: isRequired })(ref);
 
-      if (forwardedRef && typeof forwardedRef === 'function') {
-        forwardedRef(ref);
-      }
+      /**
+       * If developer is using ref, forwardedRef will be defined.
+       * React API supports ref of function and object type, so we support both.
+       */
+      if (forwardedRef && typeof forwardedRef === 'function') forwardedRef(ref);
 
       if (forwardedRef && typeof forwardedRef === 'object') {
         // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31065
@@ -68,13 +76,20 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
   );
 
   const handleOnMouseDown = (event: React.MouseEvent<HTMLElement>) => {
-    if (inputRef && !props.isDisabled) {
-      // TODO: handle focus...
+    if (localRef && localRef.current && !props.isDisabled) {
+      localRef.current.focus();
     }
     if (props.onMouseDown) props.onMouseDown(event);
   };
 
   const { isFocused, isHovered } = state;
+  const {
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    forwardedRef: fr,
+    ...inputProps
+  } = textFieldProps;
 
   return (
     <Theme.Provider theme={props.theme}>
@@ -87,7 +102,7 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
           >
             {(tokens) => (
               <Input
-                {...otherProps}
+                {...inputProps}
                 isDisabled={isDisabled!}
                 isReadOnly={isReadOnly!}
                 isRequired={isRequired!}
