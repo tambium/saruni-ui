@@ -73,15 +73,19 @@ export const Field: React.FC<Props> = (props) => {
             {(tokens) => {
               return (
                 <FieldContext.Provider value={{ ...extendedFieldProps }}>
-                  {props.label && (
-                    <label css={tokens.label as CSSObject}>{props.label}</label>
-                  )}
-                  {props.children}
-                  {isInvalid && invalidMessage && (
-                    <div css={tokens.invalidMessage as CSSObject}>
-                      {invalidMessage}
-                    </div>
-                  )}
+                  <div css={{ marginTop: 8 }}>
+                    {props.label && (
+                      <label css={tokens.label as CSSObject}>
+                        {props.label}
+                      </label>
+                    )}
+                    {props.children}
+                    {isInvalid && invalidMessage && (
+                      <div css={tokens.invalidMessage as CSSObject}>
+                        {invalidMessage}
+                      </div>
+                    )}
+                  </div>
                 </FieldContext.Provider>
               );
             }}
