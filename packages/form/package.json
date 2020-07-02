@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/form",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "@saruni-ui/icon": "^0.0.2",
-    "@saruni-ui/theme": "^0.0.4",
+    "@saruni-ui/icon": "^0.0.3",
+    "@saruni-ui/theme": "^0.0.5",
     "react-hook-form": "^5.7.2"
   },
   "devDependencies": {

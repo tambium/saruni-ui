@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/theme",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
