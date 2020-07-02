@@ -9,7 +9,17 @@ export interface ButtonThemeProps extends Partial<ButtonProps> {
 
 export type ButtonAppearances = 'default' | 'primary' | 'link';
 
-export interface ButtonProps {
+/*
+ * We remove CustomButtonProps from AllHTMLAttributes
+ * so props that overlap with HTML attributes are defined
+ * by the types specified in CustomButtonProps.
+ */
+type HtmlAttributes = Pick<
+  React.AllHTMLAttributes<HTMLElement>,
+  Exclude<keyof React.AllHTMLAttributes<HTMLElement>, keyof CustomButtonProps>
+>;
+
+export interface CustomButtonProps {
   appearance: ButtonAppearances;
   children?: React.ReactNode;
   href?: string;
@@ -21,4 +31,7 @@ export interface ButtonProps {
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
   onMouseUp?: React.MouseEventHandler<HTMLElement>;
   target?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
+
+export interface ButtonProps extends HtmlAttributes, CustomButtonProps {}

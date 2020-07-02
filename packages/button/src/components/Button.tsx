@@ -7,7 +7,7 @@ import { Theme } from '../theme';
 import { ButtonProps } from '../types';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { appearance = 'primary', children, href, isDisabled } = props;
+  const { appearance = 'primary', children, href, isDisabled, ...rest } = props;
 
   const [state, setState] = React.useState({
     isActive: false,
@@ -59,6 +59,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   const attributes = { ...state, isDisabled };
 
+  const filterProps = (props: Partial<ButtonProps>, type: React.ReactNode) => {
+    if (type === 'span') {
+      const { target, href, ...rest } = props;
+      return rest;
+    }
+    return props;
+  };
+
   return (
     <Theme.Provider>
       <GlobalThemeConsumer>
@@ -70,6 +78,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           >
             {(tokens) => (
               <Element
+                {...filterProps(rest, Element)}
                 css={tokens.button as CSSObject}
                 onBlur={onBlur}
                 onFocus={onFocus}
