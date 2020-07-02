@@ -79,7 +79,11 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
           >
             {(tokens) => (
               <label
-                css={{ alignItems: 'center', display: 'flex' }}
+                css={{
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                }}
                 onMouseDown={onMouseDown}
                 onMouseUp={onMouseUp}
               >
