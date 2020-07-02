@@ -21,7 +21,7 @@
     "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "release": "yarn build && lerna publish from-package",
     "start:stories": "lerna run start --stream --scope=examples",
-    "version:patch": "lerna version patch --no-private"
+    "version:patch": "lerna version patch"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
