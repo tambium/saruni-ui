@@ -12,5 +12,5 @@ export interface IconProps {
   /** Secondary colour of 2-color icons. Set to `inherit` to control this via `fill` in CSS. */
   secondaryColor?: string;
   /** Size of the icon. */
-  size?: sizeOpts;
+  size?: sizeOpts | number;
 }

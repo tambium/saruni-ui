@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "@saruni-ui/icon": "^0.0.2",
     "@saruni-ui/theme": "^0.0.4",
     "react-hook-form": "^5.7.2"
   },

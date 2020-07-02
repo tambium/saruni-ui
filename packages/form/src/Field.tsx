@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import { GlobalThemeConsumer, ThemeModes } from '@saruni-ui/theme';
+import { Error } from '@saruni-ui/icon';
 import { CSSObject } from '@emotion/core';
 
 import { Theme } from './theme';
@@ -41,7 +42,8 @@ export const Field: React.FC<Props> = (props) => {
   const formContext = useFormContext();
 
   if (!formContext) {
-    throw new Error('<Field /> should only be used inside a <Form />');
+    console.warn('<Field /> should only be used inside a <Form />');
+    return null;
   }
 
   const { errors } = formContext;
@@ -82,6 +84,9 @@ export const Field: React.FC<Props> = (props) => {
                     {props.children}
                     {isInvalid && invalidMessage && (
                       <div css={tokens.invalidMessage as CSSObject}>
+                        <div css={{ paddingRight: 4 }}>
+                          <Error size={14} />
+                        </div>
                         {invalidMessage}
                       </div>
                     )}

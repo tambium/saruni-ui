@@ -11,7 +11,15 @@ export const Icon: React.FC<IconProps> = ({
   size,
 }) => {
   const getSize = () => {
-    return size ? { height: sizes[size], width: sizes[size] } : {};
+    if (!size) return {};
+    /** Size is one of `sizeOpts` */
+    if (typeof size === 'string') {
+      return { height: sizes[size], width: sizes[size] };
+    }
+    /** Size is custom integer. */
+    if (typeof size === 'number') {
+      return { height: size, width: size };
+    }
   };
 
   return (

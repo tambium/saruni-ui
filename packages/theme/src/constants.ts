@@ -6,8 +6,12 @@ export const font = {
       'system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif',
   },
   size: {
-    tiny: 12,
+    small: 12,
     body: 14,
+    subtitle: 16,
+    section: 18,
+    dek: 20,
+    title: 24,
   },
 };
 

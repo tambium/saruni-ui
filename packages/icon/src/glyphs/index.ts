@@ -1,3 +1,4 @@
 import { Check } from './check';
+import { Error } from './error';
 
-export { Check };
+export { Check, Error };

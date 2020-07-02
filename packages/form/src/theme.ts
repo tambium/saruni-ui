@@ -14,9 +14,10 @@ export const Theme = createTheme<FormThemeTokens, FormThemeProps>(
   ({ mode }) => {
     return {
       invalidMessage: {
+        alignItems: 'center',
         color: colors.textCritical[mode],
         display: 'flex',
-        fontSize: font.size.tiny,
+        fontSize: font.size.small,
         fontWeight: 500,
         marginTop: 4,
       },
