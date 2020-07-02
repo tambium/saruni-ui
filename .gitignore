@@ -18,3 +18,9 @@ yarn-error.log
 
 # vscode
 .vscode
+
+# storybook
+build-storybook.log
+
+# secrets
+.env
