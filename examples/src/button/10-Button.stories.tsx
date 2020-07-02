@@ -1,8 +1,12 @@
 import React from 'react';
-import { Button as SaruniButton } from '@saruni-ui/button';
+import { Button } from '@saruni-ui/button';
 
 export default { title: 'Button' };
 
-export const Button = (props) => {
-  return <SaruniButton appearance="primary">Button</SaruniButton>;
+export const BasicButton = (props) => {
+  return <Button appearance="primary">Button</Button>;
+};
+
+BasicButton.story = {
+  name: 'Button',
 };
