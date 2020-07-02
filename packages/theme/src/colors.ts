@@ -125,27 +125,27 @@ export const borderWarningSubdued = {
 
 export const icon = {
   light: lightTheme.colors.icon,
-  darkTheme: darkTheme.colors.icon,
+  dark: darkTheme.colors.icon,
 };
 
 export const iconCritical = {
   light: lightTheme.colors.iconCritical,
-  darkTheme: darkTheme.colors.iconCritical,
+  dark: darkTheme.colors.iconCritical,
 };
 
 export const iconHighlight = {
   light: lightTheme.colors.iconHighlight,
-  darkTheme: darkTheme.colors.iconHighlight,
+  dark: darkTheme.colors.iconHighlight,
 };
 
 export const iconSuccess = {
   light: lightTheme.colors.iconSuccess,
-  darkTheme: darkTheme.colors.iconSuccess,
+  dark: darkTheme.colors.iconSuccess,
 };
 
 export const iconWarning = {
   light: lightTheme.colors.iconWarning,
-  darkTheme: darkTheme.colors.iconWarning,
+  dark: darkTheme.colors.iconWarning,
 };
 
 export const interactive = {
