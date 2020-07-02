@@ -83,13 +83,19 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
   };
 
   const { isFocused, isHovered } = state;
-  const {
-    isDisabled,
-    isReadOnly,
-    isRequired,
-    forwardedRef: fr,
-    ...inputProps
-  } = textFieldProps;
+  const { isDisabled, isReadOnly, isRequired } = textFieldProps;
+
+  const filterProps = (props: InternalProps) => {
+    const {
+      forwardedRef,
+      isDisabled,
+      isInvalid,
+      isReadOnly,
+      isRequired,
+      ...rest
+    } = props;
+    return rest;
+  };
 
   return (
     <Theme.Provider theme={props.theme}>
@@ -102,7 +108,7 @@ export const TextFieldWithForwardRef: React.FC<InternalProps> = (props) => {
           >
             {(tokens) => (
               <Input
-                {...inputProps}
+                {...filterProps(textFieldProps)}
                 isDisabled={isDisabled!}
                 isReadOnly={isReadOnly!}
                 isRequired={isRequired!}
