@@ -17,7 +17,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
         bottom: 0,
         left: 0,
         opacity: isOpaque ? 0 : 1,
-        pointerEvents: isClickThroughEnabled ? 'initial' : 'none',
+        pointerEvents: isClickThroughEnabled ? 'none' : 'initial',
         position: 'fixed',
         right: 0,
         top: 0,
