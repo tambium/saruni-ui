@@ -4,5 +4,9 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "references": [{ "path": "../icon" }, { "path": "../theme" }]
+  "references": [
+    { "path": "../backdrop" },
+    { "path": "../theme" },
+    { "path": "../portal" }
+  ]
 }

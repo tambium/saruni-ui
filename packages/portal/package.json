@@ -1,5 +1,5 @@
 {
-  "name": "@saruni-ui/banner",
+  "name": "@saruni-ui/portal",
   "version": "0.0.1",
   "author": "Tambium",
   "license": "Apache-2.0",
@@ -11,10 +11,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@saruni-ui/theme": "^0.0.5"
   },
   "devDependencies": {
     "react-dom": "^16.12.0"

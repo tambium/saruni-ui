@@ -23,6 +23,7 @@ export interface RoleColors {
 
 export const baseTheme = {
   colors: {
+    backdrop: 'rgba(0, 0, 0, 0.5)',
     borderCritical: '#E32F0E',
     interactiveText: '#FFFFFF',
   },
@@ -85,6 +86,8 @@ export const darkTheme = {
     textCritical: '#E9807A',
   },
 };
+
+export const backdrop = baseTheme.colors.backdrop;
 
 export const background = {
   light: lightTheme.colors.background,

@@ -10,12 +10,14 @@
     "chromatic": "npx chromatic"
   },
   "dependencies": {
-    "@babel/register": "^7.10.3",
+    "@babel/register": "^7.10.4",
     "@saruni-ui/banner": "^0.0.1",
     "@saruni-ui/button": "^0.0.4",
     "@saruni-ui/checkbox": "^0.0.3",
     "@saruni-ui/form": "^0.0.7",
     "@saruni-ui/icon": "^0.0.3",
+    "@saruni-ui/modal": "^0.0.1",
+    "@saruni-ui/portal": "^0.0.1",
     "@saruni-ui/textfield": "^0.0.7",
     "@saruni-ui/theme": "^0.0.5",
     "@storybook/addon-controls": "^6.0.0-beta.37",
@@ -24,13 +26,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.6",
     "yarn": "^1.22.4",
     "yup": "^0.29.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/yup": "^0.29.3",

@@ -23,3 +23,9 @@ export const shadows = {
     elevated: `0 2px 5px 0`,
   },
 };
+
+export const layers = {
+  dialog: 300,
+  backdrop: 500,
+  modal: 510,
+};
