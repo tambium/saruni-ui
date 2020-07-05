@@ -1,20 +1,31 @@
 import React from 'react';
+import { Button } from '@saruni-ui/button';
 import { Modal } from '@saruni-ui/modal';
 
 export default { title: 'Modal' };
 
 export const BasicModal = (props) => {
   const [state, setState] = React.useState({
-    isOpen: true,
+    isOpen: false,
   });
 
-  console.log(state);
-
   return (
-    <Modal
-      isOpen={state.isOpen}
-      onClose={() => setState((prevState) => ({ ...prevState, isOpen: false }))}
-    />
+    <React.Fragment>
+      <Button
+        appearance="primary"
+        onClick={() =>
+          setState((prevState) => ({ ...prevState, isOpen: true }))
+        }
+      >
+        Open
+      </Button>
+      <Modal
+        isOpen={state.isOpen}
+        onClose={() =>
+          setState((prevState) => ({ ...prevState, isOpen: false }))
+        }
+      />
+    </React.Fragment>
   );
 };
 

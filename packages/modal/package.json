@@ -17,9 +17,11 @@
     "@saruni-ui/backdrop": "^0.0.1",
     "@saruni-ui/portal": "^0.0.1",
     "@saruni-ui/theme": "^0.0.5",
-    "react-focus-lock": "^2.4.0"
+    "react-focus-lock": "^2.4.0",
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
+    "@types/react-transition-group": "^4.4.0",
     "react-dom": "^16.12.0"
   },
   "peerDependencies": {

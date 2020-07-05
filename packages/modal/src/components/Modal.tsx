@@ -7,6 +7,7 @@ import { FocusLock } from './FocusLock';
 import { Positioner } from './Positioner';
 import { ModalProps, widthOpts, WIDTH_ENUM } from '../types';
 import { Theme } from '../theme';
+import { Transition } from './Transition';
 
 export const Modal: React.FC<ModalProps> = ({
   autoFocus = true,
@@ -30,47 +31,48 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <Theme.Provider>
-      <Portal zIndex={layers.modal}>
-        <div
-          css={{
-            height: '100vh',
-            left: 0,
-            overflowY: 'auto',
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-            zIndex: layers.modal,
-            WebkitOverflowScrolling: 'touch',
-          }}
-        >
-          <GlobalThemeConsumer>
-            {({ mode }: { mode: ThemeModes }) => (
-              <Theme.Consumer
-                height={height}
-                mode={mode}
-                scrollBehavior={scrollBehavior}
-                widthName={widthName}
-                widthValue={widthValue}
-              >
-                {(tokens) => {
-                  return (
-                    <React.Fragment>
-                      {isOpen && (
+      <Transition in={isOpen}>
+        {({ fade }) => (
+          <Portal zIndex={layers.modal}>
+            <div
+              css={{
+                height: '100vh',
+                left: 0,
+                overflowY: 'auto',
+                position: 'absolute',
+                top: 0,
+                width: '100%',
+                zIndex: layers.modal,
+                WebkitOverflowScrolling: 'touch',
+                ...fade,
+              }}
+            >
+              <GlobalThemeConsumer>
+                {({ mode }: { mode: ThemeModes }) => (
+                  <Theme.Consumer
+                    height={height}
+                    mode={mode}
+                    scrollBehavior={scrollBehavior}
+                    widthName={widthName}
+                    widthValue={widthValue}
+                  >
+                    {(tokens) => {
+                      return (
                         <FocusLock autoFocus={autoFocus} isEnabled={isOpen}>
                           <Backdrop onBackdropClicked={handleBackdropClick} />
                           <Positioner tokens={tokens.positioner}>
                             <div css={tokens.modal}>Modal</div>
                           </Positioner>
                         </FocusLock>
-                      )}
-                    </React.Fragment>
-                  );
-                }}
-              </Theme.Consumer>
-            )}
-          </GlobalThemeConsumer>
-        </div>
-      </Portal>
+                      );
+                    }}
+                  </Theme.Consumer>
+                )}
+              </GlobalThemeConsumer>
+            </div>
+          </Portal>
+        )}
+      </Transition>
     </Theme.Provider>
   );
 };
