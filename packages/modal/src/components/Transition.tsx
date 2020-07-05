@@ -3,11 +3,17 @@ import { CSSObject } from '@emotion/core';
 import { Transition as RTGTransition } from 'react-transition-group';
 
 interface TransitionProps {
-  children: ({ fade }: { fade: CSSObject }) => React.ReactNode;
+  children: ({
+    fade,
+    scale,
+  }: {
+    fade: CSSObject;
+    scale: CSSObject;
+  }) => React.ReactNode;
   in: boolean;
 }
 
-const duration = 500;
+const duration = 200;
 
 export const Transition: React.FC<TransitionProps> = ({
   children,
@@ -20,9 +26,8 @@ export const Transition: React.FC<TransitionProps> = ({
       unmountOnExit
     >
       {(state) => {
-        console.log(state);
         const fadeBaseStyles = {
-          transition: `opacity ${duration / 2}ms`,
+          transition: `opacity ${duration}ms ease`,
           opacity: 1,
         };
         const fadeTransitionStyles = {
@@ -37,12 +42,32 @@ export const Transition: React.FC<TransitionProps> = ({
           unmounted: {},
         };
 
+        const scaleBaseStyles = {
+          transition: `transform ${duration}ms ease-in-out`,
+          transform: `scale(1)`,
+        };
+        const scaleTransitionStyles = {
+          entering: {
+            transform: `scale(0.5)`,
+          },
+          entered: {},
+          exiting: {
+            transform: `scale(0.5)`,
+          },
+          exited: {},
+          unmounted: {},
+        };
+
         return (
           <React.Fragment>
             {children({
               fade: {
                 ...fadeBaseStyles,
                 ...fadeTransitionStyles[state],
+              },
+              scale: {
+                ...scaleBaseStyles,
+                ...scaleTransitionStyles[state],
               },
             })}
           </React.Fragment>

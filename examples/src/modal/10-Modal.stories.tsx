@@ -20,11 +20,14 @@ export const BasicModal = (props) => {
         Open
       </Button>
       <Modal
+        heading="Modal"
         isOpen={state.isOpen}
         onClose={() =>
           setState((prevState) => ({ ...prevState, isOpen: false }))
         }
-      />
+      >
+        Body of the modal
+      </Modal>
     </React.Fragment>
   );
 };

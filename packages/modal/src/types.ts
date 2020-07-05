@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeModes } from '@saruni-ui/theme';
 
 export interface WidthEnumType {
@@ -24,6 +25,10 @@ export type scrollOpts = 'inside' | 'outside' | 'inside-wide';
 export interface ModalProps {
   /** Whether the first tabbable element is focused on opening */
   autoFocus?: boolean;
+  /** Contents of the modal. */
+  children?: React.ReactNode;
+  /** Title of the modal. */
+  heading?: React.ReactNode;
   /** Height of the modal. If not set, the modal grows to fit the content. */
   height?: number | string;
   /** Whether the modal is visible. */

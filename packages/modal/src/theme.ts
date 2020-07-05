@@ -29,8 +29,8 @@ export const getModalHeight = ({
 };
 
 const getBasePositionerStyles = (props: ModalThemeProps) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridTemplateRows: 'minmax(40px,1fr) auto minmax(40px,2fr)',
   height: maxHeightDimensions,
   left: 0,
   marginLeft: 'auto',
@@ -43,24 +43,8 @@ const getBasePositionerStyles = (props: ModalThemeProps) => ({
   zIndex: layers.modal,
 });
 
-const getBaseResponsivePositionerStyles: React.CSSProperties = {
-  height: '100%',
-  left: '0',
-  maxWidth: '100%',
-  position: 'fixed',
-  top: '0',
-  width: '100%',
-};
-
 export const getAbsolutePositionerStyles = (props: ModalThemeProps) =>
-  ({
-    ...getBasePositionerStyles(props),
-    position: 'absolute',
-
-    // '@media (min-width: 320px) and (max-width: 480px)': {
-    //   ...getBaseResponsivePositionerStyles,
-    // },
-  } as CSSObject);
+  ({ ...getBasePositionerStyles(props), position: 'absolute' } as CSSObject);
 
 const getRelativePositionerStyles = (props: ModalThemeProps) =>
   ({
@@ -69,20 +53,10 @@ const getRelativePositionerStyles = (props: ModalThemeProps) =>
     width: getModalWidth(props),
     zIndex: layers.modal,
     pointerEvents: 'none',
-
-    // '@media (min-width: 320px) and (max-width: 480px)': {
-    //   ...getBaseResponsivePositionerStyles,
-    // },
   } as CSSObject);
 
 export const getFixedPositionerStyles = (props: ModalThemeProps) =>
-  ({
-    ...getBasePositionerStyles(props),
-    position: 'fixed',
-    // '@media (min-width: 320px) and (max-width: 480px)': {
-    //   ...getBaseResponsivePositionerStyles,
-    // },
-  } as CSSObject);
+  ({ ...getBasePositionerStyles(props), position: 'fixed' } as CSSObject);
 
 const getPositionerStyles = (props: ModalThemeProps) => {
   if (props.scrollBehavior === 'outside') {
@@ -104,6 +78,7 @@ export const Theme = createTheme<ModalThemeTokens, ModalThemeProps>((props) => {
       borderRadius: 4,
       color: colors.text[props.mode],
       display: 'flex',
+      gridRow: 2,
       flexDirection: 'column',
       height: getModalHeight({ height: props.height }),
       ...flexMaxHeightIEFix,
