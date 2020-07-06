@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/icon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",

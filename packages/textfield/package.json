@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/textfield",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "@saruni-ui/form": "^0.0.7",
-    "@saruni-ui/theme": "^0.0.5",
+    "@saruni-ui/form": "^0.0.8",
+    "@saruni-ui/theme": "^0.0.6",
     "react-hook-form": "^5.7.2"
   },
   "devDependencies": {
