@@ -6,12 +6,13 @@ export const font = {
       'system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif',
   },
   size: {
-    small: 12,
-    body: 14,
-    subtitle: 16,
+    heading: 28,
+    subheading: 24,
+    title: 20,
     section: 18,
-    dek: 20,
-    title: 24,
+    subtitle: 16,
+    body: 14,
+    caption: 12,
   },
 };
 
@@ -22,4 +23,10 @@ export const shadows = {
     focused: `0 0 0 3px`,
     elevated: `0 2px 5px 0`,
   },
+};
+
+export const layers = {
+  dialog: 300,
+  backdrop: 500,
+  modal: 510,
 };

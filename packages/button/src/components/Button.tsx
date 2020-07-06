@@ -7,7 +7,7 @@ import { Theme } from '../theme';
 import { ButtonProps } from '../types';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { appearance = 'primary', children, href, isDisabled, ...rest } = props;
+  const { appearance = 'default', children, href, isDisabled, ...rest } = props;
 
   const [state, setState] = React.useState({
     isActive: false,

@@ -1,5 +1,5 @@
 {
-  "name": "@saruni-ui/banner",
+  "name": "@saruni-ui/modal",
   "version": "0.0.1",
   "author": "Tambium",
   "license": "Apache-2.0",
@@ -13,10 +13,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@saruni-ui/theme": "^0.0.5"
+    "@emotion/core": "^10.0.28",
+    "@saruni-ui/backdrop": "^0.0.1",
+    "@saruni-ui/button": "^0.0.4",
+    "@saruni-ui/portal": "^0.0.1",
+    "@saruni-ui/theme": "^0.0.5",
+    "react-focus-lock": "^2.4.0",
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
+    "@types/react-transition-group": "^4.4.0",
     "react-dom": "^16.12.0"
   },
   "peerDependencies": {

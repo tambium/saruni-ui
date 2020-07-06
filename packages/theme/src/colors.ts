@@ -23,6 +23,7 @@ export interface RoleColors {
 
 export const baseTheme = {
   colors: {
+    backdrop: 'rgba(0, 0, 0, 0.5)',
     borderCritical: '#E32F0E',
     interactiveText: '#FFFFFF',
   },
@@ -32,11 +33,15 @@ export const lightTheme = {
   ...baseTheme,
   colors: {
     ...baseTheme.colors,
+    actionDefault: '#EAEBEC',
+    actionDefaultHovered: '#E1E3E5',
+    actionDefaultPressed: '#D8DADD',
     background: '#FAFAFA',
     border: '#8C9196',
     borderCriticalSubdued: '#E0B3B2',
     borderHighlightSubdued: '#98C6CD',
     borderNeutralSubdued: '#BABFC3',
+    borderSubdued: '#E1E3E5',
     borderSuccessSubdued: '#95C9B4',
     borderWarningSubdued: '#E1B878',
     focused: '#458FFF',
@@ -48,6 +53,7 @@ export const lightTheme = {
     interactive: '#2C6ECB',
     interactiveHovered: '#1F5199',
     interactivePressed: '#103262',
+    surface: '#FFFFFF',
     surfaceCriticalSubdued: '#FFF4F4',
     surfaceSuccessSubdued: '#F1F8F5',
     surfaceHighlightSubdued: '#EBF9FC',
@@ -61,11 +67,15 @@ export const darkTheme = {
   ...baseTheme,
   colors: {
     ...baseTheme.colors,
+    actionDefault: '#4D5053',
+    actionDefaultHovered: '#54575B',
+    actionDefaultPressed: '#606467',
     background: '#0B0C0D',
     border: '#505356',
     borderCriticalSubdued: '#E32F0E',
     borderHighlightSubdued: '#449DA7',
     borderNeutralSubdued: '#505356',
+    borderSubdued: '#494C4E',
     borderSuccessSubdued: '#008766',
     borderWarningSubdued: '#997000',
     focused: '#2662B6',
@@ -77,6 +87,7 @@ export const darkTheme = {
     interactive: '#36A3FF',
     interactiveHovered: '#67AFFF',
     interactivePressed: '#88BCFF',
+    surface: '#202123',
     surfaceCriticalSubdued: '#450701',
     surfaceSuccessSubdued: '#1C352C',
     surfaceHighlightSubdued: '#123539',
@@ -85,6 +96,23 @@ export const darkTheme = {
     textCritical: '#E9807A',
   },
 };
+
+export const actionDefault = {
+  light: lightTheme.colors.actionDefault,
+  dark: darkTheme.colors.actionDefault,
+};
+
+export const actionDefaultHovered = {
+  light: lightTheme.colors.actionDefaultHovered,
+  dark: darkTheme.colors.actionDefaultHovered,
+};
+
+export const actionDefaultPressed = {
+  light: lightTheme.colors.actionDefaultPressed,
+  dark: darkTheme.colors.actionDefaultPressed,
+};
+
+export const backdrop = baseTheme.colors.backdrop;
 
 export const background = {
   light: lightTheme.colors.background,
@@ -111,6 +139,11 @@ export const borderHighlightSubdued = {
 export const borderNeutralSubdued = {
   light: lightTheme.colors.borderNeutralSubdued,
   dark: darkTheme.colors.borderNeutralSubdued,
+};
+
+export const borderSubdued = {
+  light: lightTheme.colors.borderSubdued,
+  dark: darkTheme.colors.borderSubdued,
 };
 
 export const borderSuccessSubdued = {
@@ -168,6 +201,11 @@ export const interactiveText = baseTheme.colors.interactiveText;
 export const focused = {
   light: lightTheme.colors.focused,
   dark: darkTheme.colors.focused,
+};
+
+export const surface = {
+  light: lightTheme.colors.surface,
+  dark: darkTheme.colors.surface,
 };
 
 export const surfaceCriticalSubdued = {

@@ -17,7 +17,7 @@ export const Theme = createTheme<FormThemeTokens, FormThemeProps>(
         alignItems: 'center',
         color: colors.textCritical[mode],
         display: 'flex',
-        fontSize: font.size.small,
+        fontSize: font.size.caption,
         fontWeight: 500,
         marginTop: 4,
       },
