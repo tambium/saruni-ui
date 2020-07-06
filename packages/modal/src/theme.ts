@@ -5,6 +5,10 @@ import { ModalThemeProps, WIDTH_ENUM } from './types';
 import { IEMaxHeightCalcPx, flexMaxHeightIEFix } from './utils';
 
 export interface ModalThemeTokens {
+  body: { container: CSSObject };
+  container: CSSObject;
+  footer: { container: CSSObject };
+  header: { container: CSSObject };
   positioner: CSSObject;
   modal: CSSObject;
 }
@@ -70,11 +74,21 @@ const getPositionerStyles = (props: ModalThemeProps) => {
 
 export const Theme = createTheme<ModalThemeTokens, ModalThemeProps>((props) => {
   return {
+    container: {
+      height: '100vh',
+      left: 0,
+      overflowY: 'auto',
+      position: 'absolute',
+      top: 0,
+      width: '100%',
+      zIndex: layers.modal,
+      WebkitOverflowScrolling: 'touch',
+    },
     positioner: {
       ...getPositionerStyles(props),
     },
     modal: {
-      backgroundColor: colors.background[props.mode],
+      backgroundColor: colors.surface[props.mode],
       borderRadius: 4,
       color: colors.text[props.mode],
       display: 'flex',
@@ -84,6 +98,33 @@ export const Theme = createTheme<ModalThemeTokens, ModalThemeProps>((props) => {
       ...flexMaxHeightIEFix,
       outline: 0,
       pointerEvents: 'auto',
+    },
+    body: {
+      container: {
+        flex: '1 1 auto',
+        padding: 20,
+      },
+    },
+    header: {
+      container: {
+        alignItems: 'center',
+        display: 'flex',
+        flex: '0 0 auto',
+        justifyContent: 'space-between',
+        zIndex: 1,
+        padding: '16px 20px 15px 20px',
+        boxShadow: `0 1px 0 0 ${colors.borderSubdued[props.mode]}`,
+      },
+    },
+    footer: {
+      container: {
+        display: 'flex',
+        flex: '0 0 auto',
+        justifyContent: 'flex-end',
+        zIndex: 1,
+        padding: '15px 20px 16px 20px',
+        boxShadow: `0 -1px 0 0 ${colors.borderSubdued[props.mode]}`,
+      },
     },
   };
 });

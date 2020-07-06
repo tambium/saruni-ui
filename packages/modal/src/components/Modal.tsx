@@ -12,6 +12,7 @@ import { Theme } from '../theme';
 import { Transition } from './Transition';
 
 export const Modal: React.FC<ModalProps> = ({
+  actions,
   autoFocus = true,
   children,
   heading,
@@ -19,9 +20,21 @@ export const Modal: React.FC<ModalProps> = ({
   isOpen = true,
   scrollBehavior = 'inside',
   shouldCloseOnBackdropClick = true,
+  shouldCloseOnEscapePress = true,
   onClose,
   width = 'medium',
 }) => {
+  const handleKeyDown = React.useCallback((event) => {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      if (shouldCloseOnEscapePress) onClose(event);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (shouldCloseOnBackdropClick) onClose(e);
   };
@@ -35,33 +48,21 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <Theme.Provider>
-      <Transition in={isOpen}>
-        {({ fade, scale }) => (
-          <Portal zIndex={layers.modal}>
-            <div
-              css={{
-                height: '100vh',
-                left: 0,
-                overflowY: 'auto',
-                position: 'absolute',
-                top: 0,
-                width: '100%',
-                zIndex: layers.modal,
-                WebkitOverflowScrolling: 'touch',
-                ...fade,
-              }}
-            >
-              <GlobalThemeConsumer>
-                {({ mode }: { mode: ThemeModes }) => (
-                  <Theme.Consumer
-                    height={height}
-                    mode={mode}
-                    scrollBehavior={scrollBehavior}
-                    widthName={widthName}
-                    widthValue={widthValue}
-                  >
-                    {(tokens) => {
-                      return (
+      <GlobalThemeConsumer>
+        {({ mode }: { mode: ThemeModes }) => (
+          <Theme.Consumer
+            height={height}
+            mode={mode}
+            scrollBehavior={scrollBehavior}
+            widthName={widthName}
+            widthValue={widthValue}
+          >
+            {(tokens) => {
+              return (
+                <Transition in={isOpen}>
+                  {({ fade, scale }) => (
+                    <Portal zIndex={layers.modal}>
+                      <div css={{ ...tokens.container, ...fade }}>
                         <FocusLock autoFocus={autoFocus} isEnabled={isOpen}>
                           <Backdrop onBackdropClicked={handleBackdropClick} />
                           <Positioner
@@ -69,24 +70,30 @@ export const Modal: React.FC<ModalProps> = ({
                           >
                             <div css={tokens.modal}>
                               <React.Fragment>
-                                <Header heading={heading} />
-                                <div css={{ flex: '1 1 auto', padding: 24 }}>
+                                <Header
+                                  heading={heading}
+                                  tokens={tokens.header}
+                                />
+                                <div css={tokens.body.container}>
                                   {children}
                                 </div>
-                                <Footer />
+                                <Footer
+                                  actions={actions}
+                                  tokens={tokens.footer}
+                                />
                               </React.Fragment>
                             </div>
                           </Positioner>
                         </FocusLock>
-                      );
-                    }}
-                  </Theme.Consumer>
-                )}
-              </GlobalThemeConsumer>
-            </div>
-          </Portal>
+                      </div>
+                    </Portal>
+                  )}
+                </Transition>
+              );
+            }}
+          </Theme.Consumer>
         )}
-      </Transition>
+      </GlobalThemeConsumer>
     </Theme.Provider>
   );
 };

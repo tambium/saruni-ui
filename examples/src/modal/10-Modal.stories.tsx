@@ -9,22 +9,28 @@ export const BasicModal = (props) => {
     isOpen: false,
   });
 
+  const close = () =>
+    setState((prevState) => ({ ...prevState, isOpen: false }));
+
+  const open = () => setState((prevState) => ({ ...prevState, isOpen: true }));
+
   return (
     <React.Fragment>
-      <Button
-        appearance="primary"
-        onClick={() =>
-          setState((prevState) => ({ ...prevState, isOpen: true }))
-        }
-      >
+      <Button appearance="primary" onClick={open}>
         Open
       </Button>
       <Modal
+        actions={[
+          { title: 'Close', onClick: close },
+          {
+            appearance: 'primary',
+            title: 'Action',
+            onClick: () => console.log('Action!'),
+          },
+        ]}
         heading="Modal"
         isOpen={state.isOpen}
-        onClose={() =>
-          setState((prevState) => ({ ...prevState, isOpen: false }))
-        }
+        onClose={close}
       >
         Body of the modal
       </Modal>

@@ -20,7 +20,7 @@ type HtmlAttributes = Pick<
 >;
 
 export interface CustomButtonProps {
-  appearance: ButtonAppearances;
+  appearance?: ButtonAppearances;
   children?: React.ReactNode;
   href?: string;
   isDisabled?: boolean;

@@ -15,16 +15,25 @@ export interface ButtonThemeTokens {
 
 const appearances = {
   backgroundColor: {
+    default: {
+      default: colors.actionDefault,
+      isHovered: colors.actionDefaultHovered,
+      isActive: colors.actionDefaultPressed,
+    },
     primary: {
       default: colors.interactive,
       isHovered: colors.interactiveHovered,
       isActive: colors.interactivePressed,
     },
-    link: {
-      default: 'initial',
-    },
+    link: { default: 'initial' },
   },
   boxShadowColor: {
+    default: {
+      default: colors.actionDefault,
+      isActive: colors.actionDefaultHovered,
+      isHovered: colors.actionDefaultPressed,
+      isFocused: colors.focused,
+    },
     primary: {
       default: colors.interactive,
       isActive: colors.interactivePressed,
@@ -38,12 +47,9 @@ const appearances = {
     },
   },
   color: {
-    primary: {
-      default: colors.interactiveText,
-    },
-    link: {
-      default: colors.interactive,
-    },
+    default: { default: colors.text },
+    primary: { default: colors.interactiveText },
+    link: { default: colors.interactive },
   },
 };
 

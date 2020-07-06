@@ -1,22 +1,14 @@
 import React from 'react';
+import { CSSObject } from '@emotion/core';
 
 interface HeaderProps {
   heading?: React.ReactNode;
+  tokens: { container: CSSObject };
 }
 
-export const Header: React.FC<HeaderProps> = ({ heading }) => {
+export const Header: React.FC<HeaderProps> = ({ heading, tokens }) => {
   return (
-    <div
-      css={{
-        alignItems: 'center',
-        display: 'flex',
-        flex: '0 0 auto',
-        justifyContent: 'space-between',
-        zIndex: 1,
-        padding: '20px 24px 19px 24px',
-        boxShadow: `0 1px 0 0 red`,
-      }}
-    >
+    <div css={tokens.container}>
       <h4
         css={{
           alignItems: 'center',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonProps } from '@saruni-ui/button';
 import { ThemeModes } from '@saruni-ui/theme';
 
 export interface WidthEnumType {
@@ -22,7 +23,11 @@ export type widthOpts = 'small' | 'medium' | 'large' | 'x-large';
 
 export type scrollOpts = 'inside' | 'outside' | 'inside-wide';
 
+export type ActionProps = ButtonProps & { title: React.ReactNode };
+
 export interface ModalProps {
+  /** Set of buttons included in footer. */
+  actions?: Array<ActionProps>;
   /** Whether the first tabbable element is focused on opening */
   autoFocus?: boolean;
   /** Contents of the modal. */
@@ -48,6 +53,8 @@ export interface ModalProps {
   scrollBehavior?: scrollOpts;
   /** Whether clicking the overlay should close the modal. */
   shouldCloseOnBackdropClick?: boolean;
+  /** Whether pressing the escape key should close the modal. */
+  shouldCloseOnEscapePress?: boolean;
   /** Width of the modal. */
   width?: number | string | widthOpts;
 }

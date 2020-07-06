@@ -6,6 +6,7 @@
   },
   "references": [
     { "path": "../backdrop" },
+    { "path": "../button" },
     { "path": "../theme" },
     { "path": "../portal" }
   ]

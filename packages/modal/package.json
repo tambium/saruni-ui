@@ -15,6 +15,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@saruni-ui/backdrop": "^0.0.1",
+    "@saruni-ui/button": "^0.0.4",
     "@saruni-ui/portal": "^0.0.1",
     "@saruni-ui/theme": "^0.0.5",
     "react-focus-lock": "^2.4.0",

@@ -3,7 +3,7 @@ import { Button, ButtonAppearances } from '@saruni-ui/button';
 
 export default { title: 'Button' };
 
-const appearanceOptions: ButtonAppearances[] = ['primary', 'link'];
+const appearanceOptions: ButtonAppearances[] = ['default', 'primary', 'link'];
 
 const capitalize = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);

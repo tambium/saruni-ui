@@ -1,20 +1,28 @@
 import React from 'react';
+import { CSSObject } from '@emotion/core';
+import { Button } from '@saruni-ui/button';
 
-interface FooterProps {}
+import { ActionProps } from '../types';
 
-export const Footer: React.FC<FooterProps> = ({}) => {
+interface FooterProps {
+  actions?: Array<ActionProps>;
+  tokens: { container: CSSObject };
+}
+
+export const Footer: React.FC<FooterProps> = ({ actions, tokens }) => {
   return (
-    <div
-      css={{
-        display: 'flex',
-        flex: '0 0 auto',
-        justifyContent: 'space-between',
-        zIndex: 1,
-        padding: '19px 24px 20px 24px',
-        boxShadow: `0 -1px 0 0 red`,
-      }}
-    >
-      footer
+    <div css={tokens.container}>
+      <div css={{ display: 'inline-flex', margin: '0 -6px' }}>
+        {actions
+          ? actions.map(({ title, ...rest }, index) => {
+              return (
+                <div css={{ flex: '1 1 auto', margin: '0 6px' }} key={index}>
+                  <Button {...rest}>{title}</Button>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
