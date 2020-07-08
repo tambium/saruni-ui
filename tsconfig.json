@@ -7,8 +7,11 @@
     { "path": "./packages/checkbox" },
     { "path": "./packages/form" },
     { "path": "./packages/icon" },
+    { "path": "./packages/menu" },
     { "path": "./packages/modal" },
+    { "path": "./packages/page-layout" },
     { "path": "./packages/portal" },
+    { "path": "./packages/sidebar-navigation" },
     { "path": "./packages/textfield" },
     { "path": "./packages/theme" }
   ]

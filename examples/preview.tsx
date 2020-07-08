@@ -1,5 +1,6 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
+import { css, Global } from '@emotion/core';
 import {
   DEFAULT_THEME_MODE,
   GlobalThemeProvider,
@@ -23,7 +24,19 @@ const AppContext = (props: { children: React.ReactNode }) => {
 
   return (
     <GlobalThemeProvider theme={() => ({ mode })}>
-      <div onClick={() => switchMode(mode)}>Toggle</div>
+      <div
+        onClick={() => switchMode(mode)}
+        style={{ bottom: 8, cursor: 'pointer', position: 'fixed', right: 8 }}
+      >
+        Toggle
+      </div>
+      <Global
+        styles={css`
+          #root {
+            height: 100%;
+          }
+        `}
+      />
       <Reset theme={customTheme}>{props.children}</Reset>
     </GlobalThemeProvider>
   );
