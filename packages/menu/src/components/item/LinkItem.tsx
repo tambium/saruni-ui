@@ -28,6 +28,7 @@ export const LinkItem: React.FC<LinkItemProps> = ({
             {(tokens) => (
               <Element
                 css={tokens.linkItem}
+                draggable={false}
                 href={isDisabled ? undefined : href}
               >
                 <BaseItem

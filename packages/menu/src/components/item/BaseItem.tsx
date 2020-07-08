@@ -14,14 +14,16 @@ export const BaseItem: React.FC<BaseItemProps> = ({
 
   return (
     <div css={tokens.base.wrapper}>
-      {iconBefore && <span>{iconBefore}</span>}
+      {iconBefore && (
+        <span css={tokens.base.iconBeforeWrapper}>{iconBefore}</span>
+      )}
       {children && (
         <span css={tokens.base.content}>
           {children}
           {description && <span>{description}</span>}
         </span>
       )}
-      {iconAfter && <span>{iconAfter}</span>}
+      {iconAfter && <span css={tokens.base.iconAfterWrapper}>{iconAfter}</span>}
     </div>
   );
 };

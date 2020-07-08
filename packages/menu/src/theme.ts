@@ -17,6 +17,8 @@ interface MenuThemeProps {
 interface MenuThemeTokens {
   base: {
     content: CSSObject;
+    iconAfterWrapper: CSSObject;
+    iconBeforeWrapper: CSSObject;
     wrapper: CSSObject;
   };
   linkItem: CSSObject;
@@ -39,10 +41,11 @@ const sharedItemStyles = ({
   return {
     backgroundColor: isSelected ? colors.surfaceHovered[mode] : 'transparent',
     borderRadius: 4,
-    padding: `8px 20px`,
+    color: isSelected ? colors.interactive[mode] : colors.text[mode],
     cursor: 'pointer',
     display: 'flex',
-    color: isSelected ? colors.interactive[mode] : colors.text[mode],
+    margin: `4px 0`,
+    padding: `8px 20px`,
     userSelect: 'none',
 
     '&:hover': {
@@ -78,6 +81,16 @@ export const Theme = createTheme<MenuThemeTokens, MenuThemeProps>((props) => {
         outline: 'none',
         overflow: 'hidden',
         textAlign: 'left',
+      },
+      iconAfterWrapper: {
+        display: 'flex',
+        flexShrink: 0,
+        marginLeft: 12,
+      },
+      iconBeforeWrapper: {
+        display: 'flex',
+        flexShrink: 0,
+        marginRight: 12,
       },
       wrapper: {
         alignItems: 'center',

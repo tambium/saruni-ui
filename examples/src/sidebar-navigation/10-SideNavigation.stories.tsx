@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check, CircularCheck } from '@saruni-ui/icon';
 import {
   NavigationHeader,
   Section,
@@ -15,8 +16,10 @@ export const BasicSidebarNavigation = (props) => {
         <div css={{ padding: 8 }}>Header</div>
       </NavigationHeader>
       <Section>
-        <LinkItem href="#">Link Item</LinkItem>
-        <LinkItem href="#" isSelected>
+        <LinkItem href="#" iconBefore={<CircularCheck />}>
+          Link Item
+        </LinkItem>
+        <LinkItem href="#" iconBefore={<Check />} isSelected>
           Selected Link Item
         </LinkItem>
       </Section>
