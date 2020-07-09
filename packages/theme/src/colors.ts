@@ -55,8 +55,10 @@ export const lightTheme = {
     interactivePressed: '#103262',
     surface: '#FFFFFF',
     surfaceCriticalSubdued: '#FFF4F4',
-    surfaceSuccessSubdued: '#F1F8F5',
     surfaceHighlightSubdued: '#EBF9FC',
+    surfaceHovered: '#F6F6F7',
+    surfaceSelectedPressed: '#E5EFFD',
+    surfaceSuccessSubdued: '#F1F8F5',
     surfaceWarningSubdued: '#FFF5EA',
     text: '#202223',
     textCritical: '#D72C0D',
@@ -89,8 +91,10 @@ export const darkTheme = {
     interactivePressed: '#88BCFF',
     surface: '#202123',
     surfaceCriticalSubdued: '#450701',
-    surfaceSuccessSubdued: '#1C352C',
     surfaceHighlightSubdued: '#123539',
+    surfaceHovered: '#2F3133',
+    surfaceSelectedPressed: '#0D2B56',
+    surfaceSuccessSubdued: '#1C352C',
     surfaceWarningSubdued: '#4D3B1D',
     text: '#E3E5E7',
     textCritical: '#E9807A',
@@ -216,6 +220,16 @@ export const surfaceCriticalSubdued = {
 export const surfaceHighlightSubdued = {
   light: lightTheme.colors.surfaceHighlightSubdued,
   dark: darkTheme.colors.surfaceHighlightSubdued,
+};
+
+export const surfaceHovered = {
+  light: lightTheme.colors.surfaceHovered,
+  dark: darkTheme.colors.surfaceHovered,
+};
+
+export const surfaceSelectedPressed = {
+  light: lightTheme.colors.surfaceSelectedPressed,
+  dark: darkTheme.colors.surfaceSelectedPressed,
 };
 
 export const surfaceSuccessSubdued = {
