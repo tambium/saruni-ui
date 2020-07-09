@@ -1,17 +1,22 @@
 import React from 'react';
+import { css, Global } from '@emotion/core';
 
 import {
   BANNER,
   CONTENT,
-  TOP_NAVIGATION,
   DEFAULT_BANNER_HEIGHT,
-  DEFAULT_TOP_NAVIGATION_HEIGHT,
+  DEFAULT_TOPBAR_NAVIGATION_HEIGHT,
+  LEFT_SIDEBAR_WIDTH,
+  TOPBAR_NAVIGATION,
+  BANNER_HEIGHT,
+  RIGHT_SIDEBAR_WIDTH,
+  TOPBAR_NAVIGATION_HEIGHT,
 } from '../constants';
 import { PageLayoutProps } from '../types';
 
 export const gridTemplateAreas = `
   "${BANNER}"
-  "${TOP_NAVIGATION}"
+  "${TOPBAR_NAVIGATION}"
   "${CONTENT}"
 `;
 
@@ -21,10 +26,20 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
       css={{
         display: 'grid',
         gridTemplateAreas,
-        gridTemplateRows: `${DEFAULT_BANNER_HEIGHT}px ${DEFAULT_TOP_NAVIGATION_HEIGHT}px auto`,
+        gridTemplateRows: `var(--${BANNER_HEIGHT}) var(--${TOPBAR_NAVIGATION_HEIGHT}) auto`,
         height: '100%',
       }}
     >
+      <Global
+        styles={css`
+        :root {
+          --${LEFT_SIDEBAR_WIDTH}: 0px;
+          --${RIGHT_SIDEBAR_WIDTH}: 0px;
+          --${TOPBAR_NAVIGATION_HEIGHT}: 0px;
+          --${BANNER_HEIGHT}: 0px;
+        }
+      `}
+      />
       {children}
     </div>
   );
