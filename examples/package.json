@@ -1,7 +1,7 @@
 {
   "name": "examples",
   "private": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "Apache-2.0",
   "scripts": {
     "build-storybook": "STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true build-storybook -c ./",
@@ -18,7 +18,7 @@
     "@saruni-ui/icon": "^0.0.4",
     "@saruni-ui/menu": "^0.0.2",
     "@saruni-ui/modal": "^0.0.3",
-    "@saruni-ui/page-layout": "^0.0.2",
+    "@saruni-ui/page-layout": "^0.0.3",
     "@saruni-ui/portal": "^0.0.2",
     "@saruni-ui/sidebar-navigation": "^0.0.2",
     "@saruni-ui/textfield": "^0.0.9",
