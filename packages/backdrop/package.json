@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/backdrop",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@emotion/core": "^10.0.27",
-    "@saruni-ui/theme": "^0.0.6",
+    "@saruni-ui/theme": "^0.0.7",
     "react-dom": "^16.12.0"
   },
   "peerDependencies": {
