@@ -5,5 +5,5 @@ interface SectionProps {
 }
 
 export const Section: React.FC<SectionProps> = ({ children }) => {
-  return <div style={{ marginLeft: 8, marginRight: 8 }}>{children}</div>;
+  return <div>{children}</div>;
 };
