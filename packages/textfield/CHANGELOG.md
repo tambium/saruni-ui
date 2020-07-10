@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/tambium/saruni-ui/compare/@saruni-ui/textfield@0.0.9...@saruni-ui/textfield@0.0.10) (2020-07-10)
+
+**Note:** Version bump only for package @saruni-ui/textfield
+
+
+
+
+
 ## [0.0.9](https://github.com/tambium/saruni-ui/compare/@saruni-ui/textfield@0.0.8...@saruni-ui/textfield@0.0.9) (2020-07-09)
 
 **Note:** Version bump only for package @saruni-ui/textfield

@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/checkbox",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@saruni-ui/icon": "^0.0.4",
-    "@saruni-ui/theme": "^0.0.7"
+    "@saruni-ui/theme": "^0.0.8"
   },
   "devDependencies": {
     "react-dom": "^16.12.0"
