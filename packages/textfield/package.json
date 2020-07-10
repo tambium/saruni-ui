@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/textfield",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
