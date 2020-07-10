@@ -30,6 +30,7 @@ export interface CustomButtonProps {
   onMouseEnter?: React.MouseEventHandler<HTMLElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
   onMouseUp?: React.MouseEventHandler<HTMLElement>;
+  shouldFitContainer?: boolean;
   target?: string;
   type?: 'button' | 'submit' | 'reset';
 }

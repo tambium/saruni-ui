@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSObject } from '@emotion/core';
 import {
   colors,
   createTheme,
@@ -9,8 +10,9 @@ import {
 import { ButtonThemeProps, ButtonAppearances } from './types';
 
 export interface ButtonThemeTokens {
-  button: React.CSSProperties;
-  spinner: React.CSSProperties;
+  button: CSSObject;
+  spinner: CSSObject;
+  innerWrapper: CSSObject;
 }
 
 const appearances = {
@@ -152,9 +154,17 @@ export const Theme = createTheme<ButtonThemeTokens, ButtonThemeProps>(
         boxShadow: getBoxShadow(props),
         color: getColor(props),
         cursor: getCursor(props),
+        width: props.shouldFitContainer ? '100%' : 'auto',
       },
-      spinner: {
-        backgroundColor: 'transparent',
+      spinner: { backgroundColor: 'transparent' },
+      innerWrapper: {
+        alignSelf: 'center',
+        display: 'inline-flex',
+        flexWrap: 'nowrap',
+        maxWidth: '100%',
+        position: 'relative',
+        ...(props.shouldFitContainer && { width: '100%' }),
+        ...(props.shouldFitContainer && { justifyContent: 'center' }),
       },
     };
   },

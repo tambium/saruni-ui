@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSObject } from '@emotion/core';
 import { GlobalThemeConsumer, ThemeModes } from '@saruni-ui/theme';
 
 import { mapAttributesToState } from './utils';
@@ -7,7 +6,14 @@ import { Theme } from '../theme';
 import { ButtonProps } from '../types';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { appearance = 'default', children, href, isDisabled, ...rest } = props;
+  const {
+    appearance = 'default',
+    children,
+    href,
+    isDisabled,
+    shouldFitContainer,
+    ...rest
+  } = props;
 
   const [state, setState] = React.useState({
     isActive: false,
@@ -74,12 +80,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
           <Theme.Consumer
             appearance={appearance}
             mode={mode}
+            shouldFitContainer={shouldFitContainer}
             state={mapAttributesToState(attributes)}
           >
             {(tokens) => (
               <Element
                 {...filterProps(rest, Element)}
-                css={tokens.button as CSSObject}
+                css={tokens.button}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onMouseDown={onMouseDown}
@@ -87,7 +94,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
                 onMouseLeave={onMouseLeave}
                 onMouseUp={onMouseUp}
               >
-                {children && <React.Fragment>{children}</React.Fragment>}
+                {children && <span css={tokens.innerWrapper}>{children}</span>}
               </Element>
             )}
           </Theme.Consumer>

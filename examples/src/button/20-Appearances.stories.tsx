@@ -20,3 +20,7 @@ export const Appearances = (props) => {
     </React.Fragment>
   );
 };
+
+Appearances.story = {
+  name: 'Appearances',
+};
