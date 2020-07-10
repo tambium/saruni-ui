@@ -53,6 +53,9 @@ export const lightTheme = {
     interactive: '#2C6ECB',
     interactiveHovered: '#1F5199',
     interactivePressed: '#103262',
+    shadowFromAmbientLight: 'rgba(23, 24, 24, 0.05)',
+    shadowFromDimLight: 'rgba(0, 0, 0, 0.2)',
+    shadowFromDirectLight: 'rgba(0, 0, 0, 0.15)',
     surface: '#FFFFFF',
     surfaceCriticalSubdued: '#FFF4F4',
     surfaceHighlightSubdued: '#EBF9FC',
@@ -89,6 +92,9 @@ export const darkTheme = {
     interactive: '#36A3FF',
     interactiveHovered: '#67AFFF',
     interactivePressed: '#88BCFF',
+    shadowFromAmbientLight: 'rgba(23, 24, 24, 0.05)',
+    shadowFromDimLight: 'rgba(255, 255, 255, 0.2)',
+    shadowFromDirectLight: 'rgba(255, 255, 255, 0.15)',
     surface: '#202123',
     surfaceCriticalSubdued: '#450701',
     surfaceHighlightSubdued: '#123539',
@@ -160,6 +166,11 @@ export const borderWarningSubdued = {
   dark: darkTheme.colors.borderWarningSubdued,
 };
 
+export const focused = {
+  light: lightTheme.colors.focused,
+  dark: darkTheme.colors.focused,
+};
+
 export const icon = {
   light: lightTheme.colors.icon,
   dark: darkTheme.colors.icon,
@@ -202,9 +213,19 @@ export const interactivePressed = {
 
 export const interactiveText = baseTheme.colors.interactiveText;
 
-export const focused = {
-  light: lightTheme.colors.focused,
-  dark: darkTheme.colors.focused,
+export const shadowFromAmbientLight = {
+  light: lightTheme.colors.shadowFromAmbientLight,
+  dark: darkTheme.colors.shadowFromAmbientLight,
+};
+
+export const shadowFromDimLight = {
+  light: lightTheme.colors.shadowFromDimLight,
+  dark: darkTheme.colors.shadowFromDimLight,
+};
+
+export const shadowFromDirectLight = {
+  light: lightTheme.colors.shadowFromDirectLight,
+  dark: darkTheme.colors.shadowFromDirectLight,
 };
 
 export const surface = {

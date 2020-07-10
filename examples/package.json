@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/register": "^7.10.4",
+    "@saruni-ui/card": "^0.0.1",
     "@saruni-ui/banner": "^0.0.3",
     "@saruni-ui/button": "^0.0.6",
     "@saruni-ui/checkbox": "^0.0.5",

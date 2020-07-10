@@ -5,6 +5,7 @@
     { "path": "./packages/backdrop" },
     { "path": "./packages/banner" },
     { "path": "./packages/button" },
+    { "path": "./packages/card" },
     { "path": "./packages/checkbox" },
     { "path": "./packages/form" },
     { "path": "./packages/icon" },
