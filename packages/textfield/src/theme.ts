@@ -55,7 +55,7 @@ export const Theme = createTheme<TextfieldThemeTokens, TextfieldThemeProps>(
   ({ isFocused, isInvalid, mode }) => {
     return {
       container: {
-        backgroundColor: colors.background[mode],
+        backgroundColor: colors.surface[mode],
         borderRadius: 4,
         boxShadow: getContainerBoxShadow({ isFocused, isInvalid, mode }),
         cursor: 'pointer',
