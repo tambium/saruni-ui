@@ -7,7 +7,7 @@
   "references": [
     { "path": "../backdrop" },
     { "path": "../button" },
-    { "path": "../theme" },
-    { "path": "../portal" }
+    { "path": "../portal" },
+    { "path": "../theme" }
   ]
 }

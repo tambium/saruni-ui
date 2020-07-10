@@ -37,15 +37,13 @@ const getBackgroundColor = (props: BannerThemeProps) => {
 };
 
 const getBoxShadow = (props: BannerThemeProps) => {
-  const boxShadowColor =
-    appearances['boxShadowColor'][props.appearance]['default'];
-  const highlight =
-    typeof boxShadowColor === 'object'
-      ? boxShadowColor[props.mode]
-      : boxShadowColor;
+  const getBoxShadowColor = () => {
+    const color = appearances['boxShadowColor'][props.appearance]['default'];
+    return typeof color === 'object' ? color[props.mode] : color;
+  };
 
   const shadowConfigs = {
-    hasKeyline: [{ values: shadows.state.keyline, color: highlight }],
+    hasKeyline: [{ values: shadows.state.keyline, color: getBoxShadowColor() }],
   };
 
   return generateShadow({ props: { hasKeyline: true }, shadowConfigs });

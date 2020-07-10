@@ -2,6 +2,7 @@
   "extends": "./tsconfig.entry-points.json",
   "files": [],
   "references": [
+    { "path": "./packages/backdrop" },
     { "path": "./packages/banner" },
     { "path": "./packages/button" },
     { "path": "./packages/checkbox" },
