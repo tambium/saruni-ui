@@ -72,10 +72,14 @@ export const ToolbarComponent = ({
       {['strong', 'em', 'underline', 'strike'].reduce(
         (result, mark: inlineMark) => {
           if (options.indexOf(mark) >= 0) {
-            // const isSelected = !!marks[mark].isInSet(activeMarks);
+            const isSelected = !!marks[mark].isInSet(activeMarks);
             result.push(
               <React.Fragment key={`inlinestyle-${mark}`}>
-                <div onClick={toggleMarkofType} name={mark}>
+                <div
+                  css={{ fontWeight: isSelected ? 600 : undefined }}
+                  onClick={toggleMarkofType}
+                  name={mark}
+                >
                   <span>{mark}</span>
                 </div>
                 {/* <ToolbarButton
