@@ -5,7 +5,7 @@ import { Mark } from 'prosemirror-model';
 import { inlinePluginKey } from './plugin';
 import { useStateContext } from '../../context/editor-state';
 
-type inlineMark = 'strong' | 'em' | 'underline' | 'strike' | 'code';
+type inlineMark = 'strong' | 'em' | 'underline' | 'strike';
 
 const MarkIcons = {
   strong: 'bold',
@@ -36,7 +36,7 @@ export const ToolbarComponent = ({
 
   const toggleMarkofType = (evt: React.MouseEvent) => {
     const markName = (evt.currentTarget as HTMLButtonElement).getAttribute(
-      'name',
+      'data-name',
     );
     const { state, dispatch } = view;
     const markType = state.schema.marks[markName!];
@@ -67,22 +67,23 @@ export const ToolbarComponent = ({
   const { marks } = view.state.schema;
   const { options } = config;
 
+  const inlineMarks: inlineMark[] = ['strong', 'em', 'underline', 'strike'];
+
   return (
     <React.Fragment>
-      {['strong', 'em', 'underline', 'strike'].reduce(
-        (result, mark: inlineMark) => {
-          if (options.indexOf(mark) >= 0) {
-            const isSelected = !!marks[mark].isInSet(activeMarks);
-            result.push(
-              <React.Fragment key={`inlinestyle-${mark}`}>
-                <div
-                  css={{ fontWeight: isSelected ? 600 : undefined }}
-                  onClick={toggleMarkofType}
-                  name={mark}
-                >
-                  <span>{mark}</span>
-                </div>
-                {/* <ToolbarButton
+      {inlineMarks.reduce((result, mark: inlineMark) => {
+        if (options.indexOf(mark) >= 0) {
+          const isSelected = !!marks[mark].isInSet(activeMarks);
+          result.push(
+            <React.Fragment key={`inlinestyle-${mark}`}>
+              <div
+                css={{ fontWeight: isSelected ? 600 : undefined }}
+                onClick={toggleMarkofType}
+                data-name={mark}
+              >
+                <span>{mark}</span>
+              </div>
+              {/* <ToolbarButton
                   name={mark}
                   onClick={toggleMarkofType}
                   selected={isSelected}
@@ -90,13 +91,11 @@ export const ToolbarComponent = ({
                 >
                   <Icon name={MarkIcons[mark]} selected={isSelected} />
                 </ToolbarButton> */}
-              </React.Fragment>,
-            );
-          }
-          return result;
-        },
-        [] as React.ReactElement[],
-      )}
+            </React.Fragment>,
+          );
+        }
+        return result;
+      }, [] as React.ReactElement[])}
     </React.Fragment>
   );
 };

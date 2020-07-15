@@ -6,7 +6,7 @@ export const strike = {
     { tag: 'del' },
     {
       style: 'text-decoration',
-      getAttrs: (value) => value === 'line-through' && null,
+      getAttrs: (value: string) => value === 'line-through' && null,
     },
   ],
   toDOM: () => strikeDOM,
