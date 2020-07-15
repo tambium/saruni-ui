@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditorView } from 'prosemirror-view';
-import { EditorState, Transaction } from 'prosemirror-state';
+import { EditorState, Plugin, Transaction } from 'prosemirror-state';
 import { NodeType, MarkType } from 'prosemirror-model';
 
 export interface EditorProps {

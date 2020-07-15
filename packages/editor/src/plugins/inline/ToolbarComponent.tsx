@@ -1,9 +1,9 @@
 import React from 'react';
 import { toggleMark } from 'prosemirror-commands';
-import { Mark } from 'prosemirror-model';
 
 import { inlinePluginKey } from './plugin';
 import { useStateContext } from '../../context/editor-state';
+import { MarkType } from 'prosemirror-model';
 
 type inlineMark = 'strong' | 'em' | 'underline' | 'strike';
 
@@ -49,11 +49,12 @@ export const ToolbarComponent = ({
     const { $from, $to } = selection;
     const { marks } = schema;
     const { code } = marks;
+    const typedMarks: MarkType[] = marks;
+
     if (code.isInSet(getActiveMarks())) {
       tr.removeMark($from.pos, $to.pos, code).setStoredMarks([]);
     } else {
-      // @ts-ignore
-      Object.values(marks).forEach((mark: Mark) => {
+      Object.values(typedMarks).forEach((mark) => {
         tr.removeMark($from.pos, $to.pos, mark);
       });
       const codeMark = code.create();

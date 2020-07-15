@@ -8,10 +8,8 @@ export const getProseMirrorPlugins = (plugins: EditorPlugin[]) => {
   plugins.forEach((p) => {
     if (p) {
       if (p.plugins) {
-        // @ts-ignore
         pluginList = [...pluginList, ...p.plugins];
       } else if (p.plugin) {
-        // @ts-ignore
         pluginList = [...pluginList, p.plugin];
       }
     }
