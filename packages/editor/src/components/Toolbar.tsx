@@ -24,16 +24,15 @@ export const Toolbar: React.FC<ToolbarProps> = ({ addons }) => {
   );
 
   return (
-    <React.Fragment>
+    <div onMouseDown={(e: React.MouseEvent) => e.preventDefault()}>
       {formattingOption.map((Option: EditorPlugin, index: number) => {
         if (!Option.toolbarComponent) return null;
         return (
           <React.Fragment key={`top-toolbar-option-${Option.name}`}>
-            <span>hello</span>
             <Option.toolbarComponent config={toolbar.top[Option.name]} />
           </React.Fragment>
         );
       })}
-    </React.Fragment>
+    </div>
   );
 };
