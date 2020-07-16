@@ -1,5 +1,5 @@
 import React from 'react';
-import { Editor } from '@saruni-ui/editor';
+import { Editor, EditorContent, Toolbar } from '@saruni-ui/editor';
 
 export default { title: 'Editor' };
 
@@ -12,7 +12,10 @@ export const BasicEditor = (props) => {
 
   return (
     <React.Fragment>
-      <Editor onChange={handleChange} />
+      <Editor>
+        <Toolbar />
+        <EditorContent />
+      </Editor>
       {state.output && <pre>{state.output}</pre>}
     </React.Fragment>
   );

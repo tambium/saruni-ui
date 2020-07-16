@@ -2,17 +2,13 @@ import React, { useCallback } from 'react';
 import { EditorView } from 'prosemirror-view';
 
 import { TextFormattingPluginState, TextAlignmentPluginState } from '../types';
-import { EditorContextType } from '../types/context';
 import {
   toggleStrongMark,
   createCodeBlock,
   createHeading,
   toggleTextAlignment,
 } from '../commands';
-
-type ToolbarProps = EditorContextType & {
-  editorView: EditorView;
-};
+import { useEditorSharedConfig } from '../context/shared-config';
 
 type ToolbarItem<T> = {
   editorView: EditorView;
@@ -123,11 +119,17 @@ const TextAlignmentRightToolbarItem = ({
   );
 };
 
-export const Toolbar = ({ editorView, editorPluginStates }: ToolbarProps) => {
+export const Toolbar = () => {
+  const sharedConfig = useEditorSharedConfig();
+
+  if (!sharedConfig) return null;
+
   const {
-    textFormattingPluginState,
-    textAlignmentPluginState,
-  } = editorPluginStates;
+    editorPluginStates: { textAlignmentPluginState, textFormattingPluginState },
+    editorView,
+  } = sharedConfig;
+
+  if (!editorView) return null;
 
   return (
     <div id="menu-bar">

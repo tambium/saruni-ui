@@ -1,16 +1,14 @@
 import React from 'react';
 import { css, Global } from '@emotion/core';
 
-import { EditorMount } from './EditorMount';
 import { EditorProps } from '../types';
+import { EditorInternal } from './EditorInternal';
 
 export const Editor: React.FC<EditorProps> = (props) => {
-  const editorRef = React.useRef<HTMLDivElement>(document.createElement('div'));
-
   return (
     <React.Fragment>
-      <EditorMount editorRef={editorRef} {...props} />
-      <div id="editor" ref={editorRef} />
+      <EditorInternal {...props} />
+
       <Global
         styles={css`
           .text-align__centre {
