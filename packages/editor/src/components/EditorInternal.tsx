@@ -7,9 +7,17 @@ import { useEditor } from '../hooks/use-editor';
 
 export const EditorInternal: React.FC<EditorProps> = ({
   children,
+  disabled,
+  onChange,
+  onDestroy,
   plugins,
 }) => {
-  const [editorConfig, mountRef] = useEditor({ plugins });
+  const [editorConfig, mountRef] = useEditor({
+    disabled,
+    onChange,
+    onDestroy,
+    plugins,
+  });
 
   return (
     <EditorConfigProvider value={editorConfig}>

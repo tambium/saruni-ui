@@ -7,6 +7,9 @@ import { createSchema } from '../schema/create-schema';
 import { createEditorConfig } from './create-editor-config';
 
 export const createEditor = ({
+  disabled,
+  onChange,
+  onDestroy,
   plugins,
   ref,
 }: CreateEditorParams & {
@@ -21,7 +24,20 @@ export const createEditor = ({
     schema,
   });
 
-  const editorView = new EditorView({ mount: ref }, { state });
+  const editorView = new EditorView(
+    { mount: ref },
+    {
+      state,
+      attributes: { 'data-gramm': 'false' },
+      /*
+       * Ignore all transactions and disabled the
+       * contentEditable attribute of the editor by default
+       * since these will be applied after creation.
+       */
+      dispatchTransaction: () => {},
+      editable: (_state) => !!disabled,
+    },
+  );
 
-  return { editorView };
+  return { disabled, editorView, onChange, onDestroy };
 };

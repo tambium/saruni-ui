@@ -19,9 +19,9 @@ export const useCreateEditor = (
         if (!ref) return;
 
         setEditorConfig((editorConfig) => {
-          const config =
+          const sharedConfig =
             editorConfig || createEditor({ ...createEditorParams, ref });
-          return config;
+          return sharedConfig;
         });
       },
       [createEditorParams],

@@ -4,19 +4,35 @@ import { Editor, EditorContent, Toolbar } from '@saruni-ui/editor';
 export default { title: 'Editor' };
 
 export const BasicEditor = (props) => {
-  const [state, setState] = React.useState({ output: null });
+  const [disabled, setDisabled] = React.useState(false);
+  const [mounted, setMounted] = React.useState(true);
+  const [output, setOutput] = React.useState(null);
 
-  const handleChange = (view) => {
-    setState({ output: JSON.stringify(view.doc, null, 2) });
+  const handleChange = (doc) => {
+    setOutput(JSON.stringify(doc, null, 2));
   };
 
   return (
     <React.Fragment>
-      <Editor>
-        <Toolbar />
-        <EditorContent />
-      </Editor>
-      {state.output && <pre>{state.output}</pre>}
+      <div>
+        <button onClick={() => setMounted(!mounted)}>
+          {mounted ? `Unmount` : `Mount`}
+        </button>
+        <button onClick={() => setDisabled(!disabled)}>
+          {disabled ? `Enable` : `Disable`}
+        </button>
+      </div>
+      {mounted ? (
+        <Editor
+          disabled={disabled}
+          onChange={handleChange}
+          onDestroy={() => console.log('Destroyed!')}
+        >
+          <Toolbar />
+          <EditorContent />
+        </Editor>
+      ) : null}
+      {output && <pre>{output}</pre>}
     </React.Fragment>
   );
 };
