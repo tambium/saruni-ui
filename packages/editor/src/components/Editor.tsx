@@ -1,25 +1,15 @@
 import React from 'react';
-import { css, Global } from '@emotion/core';
 
-import { EditorProps } from '../types';
+import { EditorProps } from '../types/editor';
 import { EditorInternal } from './EditorInternal';
+import { basePlugin, textFormattingPlugin } from '../plugins';
 
 export const Editor: React.FC<EditorProps> = (props) => {
+  const plugins = [basePlugin(), textFormattingPlugin()];
+
   return (
     <React.Fragment>
-      <EditorInternal {...props} />
-
-      <Global
-        styles={css`
-          .text-align__centre {
-            text-align: center;
-          }
-
-          .text-align__right {
-            text-align: right;
-          }
-        `}
-      />
+      <EditorInternal {...props} plugins={plugins} />
     </React.Fragment>
   );
 };

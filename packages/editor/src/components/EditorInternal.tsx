@@ -1,59 +1,19 @@
 import React from 'react';
-import { EditorView } from 'prosemirror-view';
-import { EditorState, Plugin } from 'prosemirror-state';
 
-import { EditorProps, EditorPluginStates } from '../types';
-import { createEditorView } from '../utils/editor/create-editor-view';
-import { buildPluginStates } from '../utils/plugins/build-plugin-states';
+import { EditorProps } from '../types/editor';
+import { EditorConfigProvider } from '../context/editor-config';
+import { EditorContentProvider } from './EditorContent';
+import { useEditor } from '../hooks/use-editor';
 
-import {
-  EditorSharedConfigProvider,
-  EditorSharedConfig,
-} from '../context/shared-config';
-
-export const EditorInternal: React.FC<EditorProps> = (props) => {
-  const editorRef = React.useRef<HTMLDivElement | null>(null);
-  const editorView = React.useRef<EditorView | null>(null);
-  const [editorPluginStates, setEditorPluginStates] = React.useState<
-    EditorPluginStates
-  >({});
-
-  const editorSharedConfig: EditorSharedConfig = {
-    editorPluginStates,
-    editorRef,
-    editorView: editorView.current,
-  };
-
-  React.useEffect(() => {
-    if (editorRef && editorRef.current) {
-      const target = editorRef.current;
-      const updateEditorPluginState = (
-        newEditorState: EditorState,
-        plugins: Array<Plugin>,
-      ) => {
-        setEditorPluginStates(buildPluginStates(newEditorState, plugins));
-      };
-
-      /*
-       * We have two lifecycle events: `init` and `update`;
-       * These methods sync React State with ProseMirror PluginState.
-       * */
-      editorView.current = createEditorView(target, {
-        onCreateEditorView: updateEditorPluginState,
-        onUpdateEditorState: updateEditorPluginState,
-      });
-
-      return () => {
-        if (editorView.current) {
-          editorView.current.destroy();
-        }
-      };
-    }
-  }, [editorRef]);
+export const EditorInternal: React.FC<EditorProps> = ({
+  children,
+  plugins,
+}) => {
+  const [editorConfig, mountRef] = useEditor({ plugins });
 
   return (
-    <EditorSharedConfigProvider value={editorSharedConfig}>
-      {props.children}
-    </EditorSharedConfigProvider>
+    <EditorConfigProvider value={editorConfig}>
+      <EditorContentProvider value={mountRef}>{children}</EditorContentProvider>
+    </EditorConfigProvider>
   );
 };

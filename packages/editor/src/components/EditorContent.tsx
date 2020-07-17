@@ -1,11 +1,17 @@
 import React from 'react';
-import { useEditorSharedConfig } from '../context/shared-config';
 
-interface EditorContentProps {}
+const EditorContentContext = React.createContext<
+  (mountRef: HTMLDivElement) => void
+>(() => {});
 
-export const EditorContent: React.FC<EditorContentProps> = () => {
-  const sharedConfig = useEditorSharedConfig();
-  if (!sharedConfig) return null;
+const EditorContentProvider = EditorContentContext.Provider;
 
-  return <div id="editor" ref={sharedConfig.editorRef} />;
-};
+/** ProseMirror View mount point. */
+const EditorContent = React.memo(() => {
+  const mountRef = React.useContext(EditorContentContext);
+  return (
+    <div style={{ border: `2px solid red`, height: 250 }} ref={mountRef} />
+  );
+});
+
+export { EditorContentProvider, EditorContent };

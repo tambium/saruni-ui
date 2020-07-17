@@ -1,53 +1,28 @@
-import {
-  Plugin,
-  EditorState,
-  PluginKey,
-  StateField,
-  Transaction,
-} from 'prosemirror-state';
-import { toggleMark } from 'prosemirror-commands';
+import { em, strike, strong } from '../../schema';
+import { EditorPlugin } from '../../types/editor-plugin';
+import { plugin as textFormattingPlugin } from './pm-plugins/text-formatting';
 
-import { TextFormattingPluginState } from '../../types';
-import { isMarkActive } from '../../utils/marks';
+interface TextFormattingPluginOptions {}
 
-export const pluginKey = new PluginKey('textFormatting');
+export const textFormatting = (
+  options?: TextFormattingPluginOptions,
+): EditorPlugin => ({
+  name: 'textFormatting',
 
-export const createTextFormattingPlugin = (): Plugin<
-  StateField<TextFormattingPluginState>
-> => {
-  return new Plugin({
-    key: pluginKey,
-    state: {
-      init(_config, state: EditorState): TextFormattingPluginState {
-        return {
-          strongDisabled: false,
-          strongActive: false,
-          headingActive: null,
-        };
+  marks() {
+    return [
+      { name: 'em', mark: em },
+      { name: 'strike', mark: strike },
+      { name: 'strong', mark: strong },
+    ];
+  },
+
+  pmPlugins() {
+    return [
+      {
+        name: 'textFormatting',
+        plugin: textFormattingPlugin(),
       },
-
-      apply(
-        tr: Transaction,
-        oldPluginState: TextFormattingPluginState,
-        _oldState: EditorState,
-        newState: EditorState,
-      ): TextFormattingPluginState {
-        if (tr.selectionSet || tr.docChanged) {
-          const {
-            schema: {
-              marks: { strong },
-            },
-          } = newState;
-
-          return {
-            ...oldPluginState,
-            strongDisabled: !toggleMark(strong)(newState),
-            strongActive: Boolean(isMarkActive(newState, strong)),
-          };
-        }
-
-        return oldPluginState;
-      },
-    },
-  });
-};
+    ];
+  },
+});

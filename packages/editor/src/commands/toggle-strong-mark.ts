@@ -1,6 +1,6 @@
 import { toggleMark } from 'prosemirror-commands';
 
-import { Command } from '../types';
+import { Command } from '../types/command';
 
 export const toggleStrongMark = (): Command => (state, dispatch) => {
   const {
