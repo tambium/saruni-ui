@@ -1,7 +1,7 @@
 import React from 'react';
-import { EditorPrivateConfig } from '../../types/editor-config';
+import { EditorSharedConfig } from '../../types/editor-config';
 
-const EditorConfigContext = React.createContext<EditorPrivateConfig | null>(
+const EditorConfigContext = React.createContext<EditorSharedConfig | null>(
   null,
 );
 

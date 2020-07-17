@@ -1,8 +1,11 @@
 import { EditorView } from 'prosemirror-view';
 import { MarkSpec, NodeSpec } from 'prosemirror-model';
 
-/** Used internally... */
-export interface EditorPrivateConfig {
+/**
+ * Provides access to classes and configurations
+ * editor components depend on.
+ */
+export interface EditorSharedConfig {
   editorView: EditorView;
 }
 
@@ -16,7 +19,6 @@ export interface MarkConfig {
   mark: MarkSpec;
 }
 
-/** Commonly used externally... */
 export interface EditorConfig {
   marks: MarkConfig[];
   nodes: NodeConfig[];

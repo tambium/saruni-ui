@@ -8,13 +8,13 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
   const editorConfig = useEditorConfig();
 
   const handleBold = React.useCallback(() => {
-    if (editorConfig) {
-      const {
-        editorView: { state, dispatch },
-      } = editorConfig;
-      toggleStrongMark()(state, dispatch);
-    }
+    const {
+      editorView: { state, dispatch },
+    } = editorConfig!;
+    toggleStrongMark()(state, dispatch);
   }, [editorConfig]);
+
+  if (!editorConfig) return null;
 
   return (
     <React.Fragment>

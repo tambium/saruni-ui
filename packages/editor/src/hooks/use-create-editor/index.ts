@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { CreateEditorParams } from '../../types/editor';
-import { EditorPrivateConfig } from '../../types/editor-config';
+import { EditorSharedConfig } from '../../types/editor-config';
 import { createEditor } from '../../utils/editor/create-editor';
 
 export const useCreateEditor = (
   createEditorParams: CreateEditorParams,
-): [EditorPrivateConfig | null, (ref: HTMLDivElement | null) => void] => {
+): [EditorSharedConfig | null, (ref: HTMLDivElement | null) => void] => {
   const [
     editorConfig,
     setEditorConfig,
-  ] = React.useState<EditorPrivateConfig | null>(null);
+  ] = React.useState<EditorSharedConfig | null>(null);
 
   return [
     editorConfig,
