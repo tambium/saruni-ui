@@ -2,6 +2,7 @@ import { EditorView } from 'prosemirror-view';
 import { MarkSpec, NodeSpec } from 'prosemirror-model';
 
 import { EditorProps } from './editor';
+import { PMPlugin } from './editor-plugin';
 
 /**
  * Provides access to classes and configurations
@@ -27,4 +28,5 @@ export interface MarkConfig {
 export interface EditorConfig {
   marks: MarkConfig[];
   nodes: NodeConfig[];
+  pmPlugins: PMPlugin[];
 }

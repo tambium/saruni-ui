@@ -4,6 +4,10 @@ import { EditorPlugin } from '../../types/editor-plugin';
 export const createEditorConfig = (plugins: EditorPlugin[]): EditorConfig => {
   return plugins.reduce(
     (acc, plugin) => {
+      if (plugin.pmPlugins) {
+        acc.pmPlugins.push(...plugin.pmPlugins());
+      }
+
       if (plugin.nodes) {
         acc.nodes.push(...plugin.nodes());
       }
@@ -17,6 +21,7 @@ export const createEditorConfig = (plugins: EditorPlugin[]): EditorConfig => {
     {
       nodes: [],
       marks: [],
+      pmPlugins: [],
     } as EditorConfig,
   );
 };

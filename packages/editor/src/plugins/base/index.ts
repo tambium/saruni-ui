@@ -1,3 +1,6 @@
+import { keymap } from 'prosemirror-keymap';
+import { baseKeymap } from 'prosemirror-commands';
+
 import { doc, paragraph, text } from '../../schema';
 import { EditorPlugin } from '../../types/editor-plugin';
 
@@ -11,6 +14,15 @@ export const base = (options?: BasePluginOptions): EditorPlugin => ({
       { name: 'doc', node: doc },
       { name: 'paragraph', node: paragraph },
       { name: 'text', node: text },
+    ];
+  },
+
+  pmPlugins() {
+    return [
+      {
+        name: 'codeBlockIndent',
+        plugin: keymap(baseKeymap),
+      },
     ];
   },
 });
