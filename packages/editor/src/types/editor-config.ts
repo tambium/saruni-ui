@@ -3,6 +3,7 @@ import { MarkSpec, NodeSpec } from 'prosemirror-model';
 
 import { EditorProps } from './editor';
 import { PMPlugin } from './editor-plugin';
+import { ToolbarComponentFactory } from './toolbar';
 
 /**
  * Provides access to classes and configurations
@@ -13,6 +14,7 @@ export interface EditorSharedConfig {
   editorView: EditorView;
   onChange?: EditorProps['onChange'];
   onDestroy?: EditorProps['onDestroy'];
+  toolbarComponents?: ToolbarComponentFactory[];
 }
 
 export interface NodeConfig {
@@ -29,4 +31,5 @@ export interface EditorConfig {
   marks: MarkConfig[];
   nodes: NodeConfig[];
   pmPlugins: PMPlugin[];
+  toolbarComponents: ToolbarComponentFactory[];
 }

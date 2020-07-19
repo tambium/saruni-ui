@@ -42,5 +42,11 @@ export const createEditor = ({
     },
   );
 
-  return { disabled, editorView, onChange, onDestroy };
+  return {
+    disabled,
+    editorView,
+    onChange,
+    onDestroy,
+    toolbarComponents: editorConfig.toolbarComponents,
+  };
 };
