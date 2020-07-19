@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { em, strike, strong, underline } from '../../schema';
 import { EditorPlugin } from '../../types/editor-plugin';
 import {

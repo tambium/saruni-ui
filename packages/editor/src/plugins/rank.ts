@@ -1,5 +1,5 @@
 export const ranks = {
-  plugins: ['textFormatting', 'codeBlockIndent'],
-  nodes: ['doc', 'paragraph', 'text'],
+  plugins: ['list', 'textFormatting', 'codeBlockIndent'],
+  nodes: ['doc', 'paragraph', 'text', 'bulletList', 'orderedList', 'listItem'],
   marks: ['em', 'strong', 'strike', 'underline'],
 };
