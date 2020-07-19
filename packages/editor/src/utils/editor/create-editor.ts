@@ -5,6 +5,7 @@ import { CreateEditorParams } from '../../types/editor';
 import { EditorSharedConfig } from '../../types/editor-config';
 import { createSchema } from '../schema/create-schema';
 import { createEditorConfig } from './create-editor-config';
+import { createPMPlugins } from '../plugins/create-pm-plugins';
 
 export const createEditor = ({
   disabled,
@@ -19,9 +20,11 @@ export const createEditor = ({
 
   const editorConfig = createEditorConfig(plugins || []);
   const schema = createSchema(editorConfig);
+  const pmPlugins = createPMPlugins({ editorConfig });
 
   const state = EditorState.create({
     schema,
+    plugins: pmPlugins,
   });
 
   const editorView = new EditorView(
@@ -39,5 +42,11 @@ export const createEditor = ({
     },
   );
 
-  return { disabled, editorView, onChange, onDestroy };
+  return {
+    disabled,
+    editorView,
+    onChange,
+    onDestroy,
+    toolbarComponents: editorConfig.toolbarComponents,
+  };
 };

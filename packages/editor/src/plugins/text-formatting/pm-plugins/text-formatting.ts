@@ -1,6 +1,8 @@
 import { toggleMark } from 'prosemirror-commands';
 import { EditorState, Plugin, PluginKey, Transaction } from 'prosemirror-state';
+
 import { isMarkActive } from '../../../utils/marks/is-mark-active';
+import { shallowEqual } from '../../../utils/object';
 
 export const pluginKey = new PluginKey('textFormatting');
 
@@ -14,12 +16,15 @@ export interface TextFormattingState {
   strongActive?: boolean;
   strongDisabled?: boolean;
   strongHidden?: boolean;
+  underlineActive?: boolean;
+  underlineDisabled?: boolean;
+  underlineHidden?: boolean;
 }
 
 const getTextFormattingState = (
   editorState: EditorState,
 ): TextFormattingState => {
-  const { em, strike, strong } = editorState.schema.marks;
+  const { em, strike, strong, underline } = editorState.schema.marks;
   const state: TextFormattingState = {};
   if (em) {
     state.emActive = isMarkActive(editorState, em);
@@ -32,6 +37,10 @@ const getTextFormattingState = (
   if (strong) {
     state.strongActive = isMarkActive(editorState, strong);
     state.strongDisabled = !toggleMark(strong)(editorState);
+  }
+  if (underline) {
+    state.underlineActive = isMarkActive(editorState, underline);
+    state.underlineDisabled = !toggleMark(underline)(editorState);
   }
   return state;
 };
@@ -49,13 +58,7 @@ export const plugin = () =>
         newState: EditorState,
       ): TextFormattingState {
         const state = getTextFormattingState(newState);
-        if (tr.selectionSet || tr.docChanged) {
-          const {
-            schema: {
-              marks: { strong },
-            },
-          } = newState;
-
+        if (!shallowEqual(pluginState, state)) {
           return state;
         }
         return pluginState;

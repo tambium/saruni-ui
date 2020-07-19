@@ -2,10 +2,10 @@ import React from 'react';
 
 import { EditorProps } from '../types/editor';
 import { EditorInternal } from './EditorInternal';
-import { basePlugin, textFormattingPlugin } from '../plugins';
+import { basePlugin, textFormattingPlugin, listsPlugin } from '../plugins';
 
 export const Editor: React.FC<EditorProps> = (props) => {
-  const plugins = [basePlugin(), textFormattingPlugin()];
+  const plugins = [basePlugin(), textFormattingPlugin(), listsPlugin()];
 
   return (
     <React.Fragment>
