@@ -27,14 +27,14 @@ export const ResetTheme = createTheme<ResetThemeTokens, ResetThemeProps>(
 );
 
 export const Reset = (props: ResetProps) => {
-  const { children, ...rest } = props;
+  const { children, theme } = props;
 
   return (
-    <ResetTheme.Provider theme={props.theme}>
+    <ResetTheme.Provider theme={theme}>
       <GlobalThemeConsumer>
         {({ mode }: { mode: ThemeModes }) => (
           <ResetTheme.Consumer mode={mode}>
-            {({ backgroundColor, color, fontSize }) => (
+            {({ backgroundColor, color, fontSize, fontFamily }) => (
               <React.Fragment>
                 <Global
                   styles={css`
@@ -80,7 +80,7 @@ export const Reset = (props: ResetProps) => {
                     body {
                       background-color: ${backgroundColor};
                       color: ${color};
-                      font-family: ${font.family.ui};
+                      font-family: ${fontFamily || font.family.ui};
                       font-size: ${fontSize || font.size.body}px;
                       font-style: normal;
                       font-weight: 400;
@@ -123,7 +123,7 @@ export const Reset = (props: ResetProps) => {
                       display: block;
                     }
 
-                    /* Suppress the ugly broken image styling in Firefox */
+                    /* Suppress broken image styling in Firefox */
                     @-moz-document url-prefix() {
                       img {
                         font-size: 0;
@@ -143,9 +143,3 @@ export const Reset = (props: ResetProps) => {
     </ResetTheme.Provider>
   );
 };
-
-// export const Reset = (props: ResetProps) => (
-//   <ResetTheme.Provider theme={props.theme}>
-//     <ThemedReset {...props} />
-//   </ResetTheme.Provider>
-// );

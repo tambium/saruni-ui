@@ -60,6 +60,7 @@ export const lightTheme = {
     surfaceCriticalSubdued: '#FFF4F4',
     surfaceHighlightSubdued: '#EBF9FC',
     surfaceHovered: '#F6F6F7',
+    surfaceNeutralSubdued: '#F6F6F7',
     surfaceSelectedPressed: '#E5EFFD',
     surfaceSuccessSubdued: '#F1F8F5',
     surfaceWarningSubdued: '#FFF5EA',
@@ -99,6 +100,7 @@ export const darkTheme = {
     surfaceCriticalSubdued: '#450701',
     surfaceHighlightSubdued: '#123539',
     surfaceHovered: '#2F3133',
+    surfaceNeutralSubdued: '#44474A',
     surfaceSelectedPressed: '#0D2B56',
     surfaceSuccessSubdued: '#1C352C',
     surfaceWarningSubdued: '#4D3B1D',
@@ -246,6 +248,11 @@ export const surfaceHighlightSubdued = {
 export const surfaceHovered = {
   light: lightTheme.colors.surfaceHovered,
   dark: darkTheme.colors.surfaceHovered,
+};
+
+export const surfaceNeutralSubdued = {
+  light: lightTheme.colors.surfaceNeutralSubdued,
+  dark: darkTheme.colors.surfaceNeutralSubdued,
 };
 
 export const surfaceSelectedPressed = {

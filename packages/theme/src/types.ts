@@ -15,6 +15,7 @@ export interface ResetThemeTokens {
   backgroundColor: string;
   color: string;
   fontSize?: number;
+  fontFamily?: string;
 }
 
 export interface ResetThemeProps {
