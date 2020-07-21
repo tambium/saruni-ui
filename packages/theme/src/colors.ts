@@ -48,6 +48,7 @@ export const lightTheme = {
     icon: '#5C5F62',
     iconCritical: '#D72C0D',
     iconHighlight: '#00A0AC',
+    iconSubdued: '#8C9196',
     iconSuccess: '#007F5F',
     iconWarning: '#B98900',
     interactive: '#2C6ECB',
@@ -66,6 +67,7 @@ export const lightTheme = {
     surfaceWarningSubdued: '#FFF5EA',
     text: '#202223',
     textCritical: '#D72C0D',
+    textSubdued: '#6D7175',
   },
 };
 
@@ -88,6 +90,7 @@ export const darkTheme = {
     icon: '#A6ACB2',
     iconCritical: '#DA2D0D',
     iconHighlight: '#2C6C73',
+    iconSubdued: '#787D81',
     iconSuccess: '#005E46',
     iconWarning: '#684B00',
     interactive: '#36A3FF',
@@ -106,6 +109,7 @@ export const darkTheme = {
     surfaceWarningSubdued: '#4D3B1D',
     text: '#E3E5E7',
     textCritical: '#E9807A',
+    textSubdued: '#999FA4',
   },
 };
 
@@ -186,6 +190,11 @@ export const iconCritical = {
 export const iconHighlight = {
   light: lightTheme.colors.iconHighlight,
   dark: darkTheme.colors.iconHighlight,
+};
+
+export const iconSubdued = {
+  light: lightTheme.colors.iconSubdued,
+  dark: darkTheme.colors.iconSubdued,
 };
 
 export const iconSuccess = {
@@ -278,4 +287,9 @@ export const text = {
 export const textCritical = {
   light: lightTheme.colors.textCritical,
   dark: darkTheme.colors.textCritical,
+};
+
+export const textSubdued = {
+  light: lightTheme.colors.textSubdued,
+  dark: darkTheme.colors.textSubdued,
 };
