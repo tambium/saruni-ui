@@ -1,7 +1,6 @@
 {
   "name": "@saruni-ui/editor",
   "version": "0.0.2",
-  "private": true,
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
