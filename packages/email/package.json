@@ -1,0 +1,25 @@
+{
+  "name": "@saruni-ui/email",
+  "version": "0.0.1",
+  "author": "Tambium",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@saruni-ui/theme": "^0.0.10"
+  },
+  "devDependencies": {
+    "react-dom": "^16.12.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  }
+}
