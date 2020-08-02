@@ -1,1 +1,1 @@
-export { DefaultLayout, TransactionalTemplate } from './components';
+export * from './components';

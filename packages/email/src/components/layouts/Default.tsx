@@ -16,7 +16,6 @@ export const Default: React.FC<DefaultProps> = ({ children, subject }) => {
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>{subject}</title>
       </head>
-
       <body>
         <table
           css={{
@@ -28,30 +27,32 @@ export const Default: React.FC<DefaultProps> = ({ children, subject }) => {
             width: '100%',
           }}
         >
-          <tr>
-            <td></td>
-            <td
-              css={{
-                display: 'block',
-                margin: '0 auto',
-                maxWidth: EMAIL_WIDTH,
-                padding: 8,
-                width: EMAIL_WIDTH || 'auto',
-              }}
-            >
-              <div
+          <tbody>
+            <tr>
+              <td></td>
+              <td
                 css={{
                   display: 'block',
                   margin: '0 auto',
                   maxWidth: EMAIL_WIDTH,
                   padding: 8,
+                  width: EMAIL_WIDTH || 'auto',
                 }}
               >
-                {children}
-              </div>
-            </td>
-            <td></td>
-          </tr>
+                <div
+                  css={{
+                    display: 'block',
+                    margin: '0 auto',
+                    maxWidth: EMAIL_WIDTH,
+                    padding: 8,
+                  }}
+                >
+                  {children}
+                </div>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </body>
     </html>
