@@ -1,8 +1,8 @@
 import React from 'react';
-import { FormContext, FormContextValues } from 'react-hook-form';
+import { FormProvider, UseFormMethods } from 'react-hook-form';
 
 interface FormProps {
-  formMethods: FormContextValues<Record<string, any>>;
+  formMethods: UseFormMethods<Record<string, any>>;
   onSubmit: <T>(
     data: T,
     e: React.BaseSyntheticEvent | undefined,
@@ -50,7 +50,7 @@ export const Form: React.FC<FormProps> = (props) => {
       })}
     >
       <FormErrorContext.Provider value={formError}>
-        <FormContext {...formMethods}>{props.children}</FormContext>
+        <FormProvider {...formMethods}>{props.children}</FormProvider>
       </FormErrorContext.Provider>
     </form>
   );

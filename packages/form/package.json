@@ -16,7 +16,7 @@
     "@emotion/core": "^10.0.28",
     "@saruni-ui/icon": "^0.0.4",
     "@saruni-ui/theme": "^0.0.10",
-    "react-hook-form": "^5.7.2"
+    "react-hook-form": "^6.3.0"
   },
   "devDependencies": {
     "react-dom": "^16.12.0"
