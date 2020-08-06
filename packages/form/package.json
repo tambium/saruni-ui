@@ -1,6 +1,6 @@
 {
   "name": "@saruni-ui/form",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "Tambium",
   "license": "Apache-2.0",
   "main": "dist/index.js",
