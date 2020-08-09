@@ -2,7 +2,6 @@ import React from 'react';
 import { css } from '@emotion/core';
 import {
   Button,
-  HighlightedSection,
   TransactionalTemplate as SNTransactionalTemplate,
   Text,
 } from '@saruni-ui/email';
