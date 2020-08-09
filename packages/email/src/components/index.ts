@@ -1,3 +1,2 @@
-export { DefaultLayout } from './layouts';
-export { Button, Divider, Text } from './partials';
+export { Button, Divider, Text } from './elements';
 export { TransactionalTemplate } from './templates';
