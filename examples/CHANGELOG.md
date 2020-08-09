@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.13](https://github.com/tambium/saruni-ui/compare/examples@0.0.12...examples@0.0.13) (2020-08-09)
+
+**Note:** Version bump only for package examples
+
+
+
+
+
 ## [0.0.12](https://github.com/tambium/saruni-ui/compare/examples@0.0.11...examples@0.0.12) (2020-08-06)
 
 **Note:** Version bump only for package examples
