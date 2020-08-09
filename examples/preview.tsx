@@ -30,14 +30,15 @@ const AppContext = (props: { children: React.ReactNode }) => {
       >
         Toggle
       </div>
-      <Global
+      {props.children}
+      {/* <Global
         styles={css`
           #root {
             height: 100%;
           }
         `}
       />
-      <Reset theme={customTheme}>{props.children}</Reset>
+      <Reset theme={customTheme}>{props.children}</Reset> */}
     </GlobalThemeProvider>
   );
 };

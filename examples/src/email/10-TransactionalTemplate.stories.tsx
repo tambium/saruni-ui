@@ -1,11 +1,11 @@
 import React from 'react';
+import { css } from '@emotion/core';
 import {
   Button,
-  Divider,
   TransactionalTemplate as SNTransactionalTemplate,
   Text,
 } from '@saruni-ui/email';
-import { font } from '@saruni-ui/theme';
+import { colors, font } from '@saruni-ui/theme';
 
 export default { title: 'Email' };
 
@@ -23,27 +23,38 @@ export const TransactionalTemplate = (props) => {
   );
 
   const Header = (
-    <React.Fragment>
-      <h1 css={{ fontSize: font.size.subheading }}>Saruni</h1>
-      <Divider />
-    </React.Fragment>
+    <a
+      css={css`
+        color: ${colors.textSubdued['light']};
+        font-weight: 500;
+        text-decoration: none;
+        @media (prefers-color-scheme: dark) {
+          color: ${colors.textSubdued['dark']};
+        }
+      `}
+      href="https://example.com"
+    >
+      Saruni
+    </a>
   );
 
   const Footer = (
-    <div css={{ clear: 'both', fontSize: font.size.caption, width: '100%' }}>
-      <table>
-        <tbody>
-          <tr>
-            <td css={{ padding: 16 }}>
-              <p>
-                Don’t like these emails?{' '}
-                <a href={'http://example.com'}>Unsubscribe</a>.
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <p
+      css={css`
+        color: ${colors.textSubdued['light']};
+        font-size: ${font.size.caption}px;
+        text-align: center;
+        @media (prefers-color-scheme: dark) {
+          color: ${colors.textSubdued['dark']};
+        }
+      `}
+    >
+      &copy; Tambium {new Date().getFullYear()}
+      <br />
+      221B Baker Street
+      <br />
+      London, UK
+    </p>
   );
 
   return (
