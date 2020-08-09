@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { colors, font, Reset } from '@saruni-ui/theme';
+import { colors, Reset } from '@saruni-ui/theme';
 
-import { EMAIL_PADDING, EMAIL_WIDTH } from '../../constants';
+import { EMAIL_SPACING, EMAIL_WIDTH } from '../../constants';
 
 interface TransactionalProps {
   appearance?: 'contained' | 'full' | 'plain';
@@ -87,7 +87,7 @@ export const Transactional: React.FC<TransactionalProps> = ({
                   <tr>
                     <td
                       css={{
-                        padding: `${EMAIL_PADDING}px 0`,
+                        padding: `${EMAIL_SPACING}px 0`,
                         textAlign: 'center',
                       }}
                     >
@@ -129,7 +129,7 @@ export const Transactional: React.FC<TransactionalProps> = ({
                       >
                         {/* Content Start */}
                         <tr>
-                          <td css={{ padding: EMAIL_PADDING }}>
+                          <td css={{ padding: EMAIL_SPACING }}>
                             <div>{Body}</div>
                           </td>
                         </tr>
@@ -153,7 +153,7 @@ export const Transactional: React.FC<TransactionalProps> = ({
                         role="presentation"
                       >
                         <tr>
-                          <td align="center" css={{ padding: EMAIL_PADDING }}>
+                          <td align="center" css={{ padding: EMAIL_SPACING }}>
                             {Footer}
                           </td>
                         </tr>

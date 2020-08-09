@@ -1,2 +1,2 @@
-export { Button, Divider, Text } from './elements';
+export { Button, Divider, HighlightedSection, Text } from './elements';
 export { TransactionalTemplate } from './templates';
